@@ -1,0 +1,69 @@
+/* src/components/Home.css */
+
+.products-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+  color: #333; /* Adjust the color as needed */
+}
+
+#products {
+  padding: 2rem 0;
+}
+
+/* Style each product card */
+.product-card {
+  border: 1px solid #ddd; /* Adjust the border color as needed */
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust box-shadow properties */
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Style pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.page-item {
+  margin: 0 0.5rem;
+}
+
+.page-link {
+  color: #333; /* Adjust the link color as needed */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.page-link:hover {
+  color: #007bff; /* Adjust the hover color as needed */
+}
+
+/* Additional styling can be added as needed */

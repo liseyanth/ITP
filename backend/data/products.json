@@ -1,0 +1,85 @@
+[
+    {
+        "name": "Organic Coconut 20% Rich Body Cream",
+        "price": 4450.00,
+        "description": "A gently hydrating formula to soothe, nourish & instantly comfort the feeling of dryness. Enriched with a high concentration of pure Organic Coconut Oil - naturally cold pressed at source from the finest fresh coconuts hand-picked from the lush tropical gardens of Ceylon. Rich in natural vitamins & protective anti-oxidants to help deliver moisture & nourishment, while fortifying skin & protecting against dryness. Helps soften & smoothen skin, protecting against the elements & promoting even skin tone.",
+        "ratings": 0,
+        "images": [
+            {
+                "image": "/images/products/Product1.jpg"
+            },
+            {
+                "image": "/images/products/Product1.jpg"
+            }
+        ],
+        "category": "Body Care",
+        "seller": "Ester Aura",
+        "stock": 5,
+        "numOfReviews": 0,
+        "reviews": []
+    },
+    {
+        "name": "Organic Neem and Tea Tree Face Essentials Set",
+        "price": 7850.00,
+        "description": "Organic skincare essentials designed to fulfill the advanced needs of your face care routine.",
+        "ratings": 0,
+        "images": [
+            {
+                "image": "/images/products/Product2.jpg"
+            }
+        ],
+        "category": "Face Care",
+        "seller": "Ester Aura",
+        "stock": 9,
+        "numOfReviews": 0,
+        "reviews": []
+    },
+    {
+        "name":"Organic True Turmeric Vitamin C Glow Renewing Treatment Serum",
+        "price": 5585.00,
+        "description": "An organic serum designed to renew and refresh your skin with the power of natural ingredients.",
+        "ratings": 0,
+        "images": [
+            {
+                "image": "/images/products/Products3.jpg"
+            }
+        ],
+        "category": "Skin Care",
+        "seller": "Ester Aura",
+        "stock": 9,
+        "numOfReviews": 0,
+        "reviews": []
+    },
+    {
+        "name": "Organic Lavender Body Lotion",
+        "price": 20.99,
+        "description": "A soothing organic body lotion with the calming scent of lavender.",
+        "ratings": 0,
+        "images": [
+            {
+                "image": "/images/products/Product4.jpg"
+            }
+        ],
+        "category": "Body Care",
+        "seller": "Ester Aura",
+        "stock": 4,
+        "numOfReviews": 0,
+        "reviews": []
+    },
+    {
+        "name": "Organic Aloe Vera Face Cleanser",
+        "price": 12.99,
+        "description": "An organic face cleanser enriched with the goodness of aloe vera.",
+        "ratings": 0,
+        "images": [
+            {
+                "image": "/images/products/Product5.jpg"
+            }
+        ],
+        "category": "Face Care",
+        "seller": "Ester Aura",
+        "stock": 6,
+        "numOfReviews": 0,
+        "reviews": []
+    }
+]

@@ -1,0 +1,59 @@
+/* Table styles */
+.table {
+    background-image: url('https://www.naturopathy-uk.com/wp-content/uploads/2021/10/make-your-own-natural-skincare.jpeg'); /* Add your image file path here */
+    background-size: cover; /* Scale the image to cover the entire table */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center center; /* Center the image */
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.table th, .table td {
+    border-top: 0;
+    padding: 12px 15px;
+    background-color: #fff;
+}
+
+/* Style the first row with a different background color */
+.table tbody tr:first-child {
+    background-color: #f0f0f0;
+}
+
+/* Style alternating rows with different background colors */
+.table tbody tr:nth-child(even) {
+    background-color: #e5e5e5;
+}
+
+/* Hover effect for rows */
+.table tbody tr:hover {
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
+/* Add a border-radius to the first and last rows for rounded corners */
+.table tbody tr:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.table tbody tr:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Style table header */
+.table thead th {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Add some spacing to buttons */
+.btn {
+    margin: 5px;
+}
+
+/* Button hover styles */
+.btn:hover {
+    transform: scale(1.05);
+}

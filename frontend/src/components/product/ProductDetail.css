@@ -1,0 +1,26 @@
+/* View-specific CSS */
+.view-container {
+  background-color: #f9f9f9; /* Background color for the view */
+  padding: 20px;
+}
+
+.view-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.view-description {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.view-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+

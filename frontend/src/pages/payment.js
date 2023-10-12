@@ -12,7 +12,7 @@ function pay() {
     setSearchQuery(event.target.value);
   };
 
-//use effect
+//use effect  v1
   useEffect(()=>{
     Axios.get("http://localhost:8000/read").then((response)=>
     {

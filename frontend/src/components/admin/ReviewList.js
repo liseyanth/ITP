@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteReview, getReviews } from "../../actions/productActions";
 import { clearError, clearReviewDeleted } from "../../slices/productSlice";
@@ -8,7 +8,7 @@ import { MDBDataTable } from "mdbreact";
 import { toast } from "react-toastify";
 import Sidebar from "./Sidebar";
 import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
+import "jspdf-autotable"; // Import the autotable plugin
 
 export default function ReviewList() {
   const { reviews = [], loading = true, error, isReviewDeleted } = useSelector(
@@ -49,7 +49,10 @@ export default function ReviewList() {
       rows: [],
     };
 
+    // Add logic here to filter reviews by topic "ESTER AURA" and add the date
+
     reviews.forEach((review) => {
+      // Add logic here to filter reviews by topic "ESTER AURA" and add the date
       data.rows.push({
         id: review._id,
         rating: review.rating,
@@ -81,18 +84,54 @@ export default function ReviewList() {
     dispatch(getReviews(productId));
   };
 
-  const generatePDF = () => {
-    const input = document.getElementById("reviews-table");
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      const imgProps = pdf.getImageProperties(imgData);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("reviews.pdf");
-    });
-  };
+const generatePDF = () => {
+  const pdf = new jsPDF();
+  pdf.setFontSize(18);
+  pdf.setFont("helvetica", "bold"); // Set font and style
+
+  // Centered Title and Logo
+  pdf.addImage("/images/products/logo.jpg", "JPEG", 20, 10 , 30, 30);
+  pdf.text("ESTER AURA Reviews", 105,20, { align: "center" });
+
+  // Add some space after the title and logo
+  let yOffset = 50;
+
+  // Add Product ID and Date
+  const date = new Date().toLocaleDateString();
+  pdf.setFontSize(12);
+  pdf.setFont("helvetica", "normal"); // Set font and style
+  pdf.text(`Product ID: ${productId}`, 15, yOffset);
+  pdf.text(`Date: ${date}`, 15, yOffset + 10);
+
+  const tableData = setReviews().rows.map((row) => [
+    row.id,
+    row.rating,
+    row.user,
+    row.comment,
+  ]);
+
+  // Customize table styling
+  pdf.autoTable({
+    head: [["ID", "Rating", "User", "Comment"]],
+    body: tableData,
+    startY: yOffset + 30,
+    styles: {
+      cellPadding: 4,
+      fontSize: 12,
+      textColor: [0, 0, 0], // Black text color
+    },
+  });
+
+  // Calculate the height of the table
+  const tableHeight = pdf.previousAutoTable.finalY + 10;
+
+  // Add some space after the table
+  yOffset += tableHeight;
+
+  // Save the PDF with a specific filename
+  pdf.save("ester_aura_reviews.pdf");
+};
+
 
   useEffect(() => {
     if (error) {
@@ -117,14 +156,16 @@ export default function ReviewList() {
   }, [dispatch, error, productId, isReviewDeleted]);
 
   return (
-    <div className="row">
-      <div className="col-12 col-md-2">
+    <Row>
+      <Col md={2}>
         <Sidebar />
-      </div>
-      <div className="col-12 col-md-10">
-        <h1 className="my-4">Review List</h1>
-        <div className="row justify-content-center mt-5">
-          <div className="col-5">
+      </Col>
+      <Col md={10}>
+        <h1 className="my-4" style={{ fontSize: "24px", fontWeight: "bold" }}>
+          Review List
+        </h1>
+        <Row className="justify-content-center mt-5">
+          <Col md={5}>
             <form onSubmit={submitHandler}>
               <div className="form-group">
                 <label>Product ID</label>
@@ -142,16 +183,15 @@ export default function ReviewList() {
               >
                 Search
               </button>
-              <button
-                onClick={generatePDF}
-                className="btn btn-secondary btn-block py-2"
-                disabled={loading}
-              >
-                Generate PDF
-              </button>
             </form>
-          </div>
-        </div>
+            <Button
+              onClick={generatePDF}
+              className="btn btn-primary btn-block py-2 mt-3"
+            >
+              Generate PDF
+            </Button>
+          </Col>
+        </Row>
         <Fragment>
           {loading ? (
             <Loader />
@@ -162,12 +202,12 @@ export default function ReviewList() {
               striped
               hover
               className="px-3"
-              noBottomColumns={true} // Hide bottom columns
-              id="reviews-table" // Add this ID to your reviews table
+              noBottomColumns={true}
+              id="reviews-table"
             />
           )}
         </Fragment>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 }

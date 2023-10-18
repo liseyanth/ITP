@@ -16,6 +16,7 @@
     "countries-list": "^3.0.5",
     "install": "^0.13.0",
     "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.7.0",
     "mdbreact": "^5.2.0",
     "npm": "^10.1.0",
     "pdf-lib": "^1.17.1",

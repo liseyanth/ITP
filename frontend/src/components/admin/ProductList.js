@@ -103,12 +103,15 @@ export default function ProductList() {
             <Fragment>
                 {loading ? <Loader/> : 
                     <MDBDataTable
-                        data={setProducts()}
-                        bordered
-                        striped
-                        hover
-                        className="px-3"
-                    />
+                    data={setProducts()}
+                    bordered
+                    striped
+                    hover
+                    entriesOptions={[5, 10, 15, 20]}
+                    noBottomColumns={true} 
+                    className="px-3"
+                />
+                
                 }
             </Fragment>
         </div>

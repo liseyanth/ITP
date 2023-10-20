@@ -4,7 +4,7 @@
 .cart-item {
     margin: 20px 0;
     padding: 15px;
-    background-color: #3f3f48;
+    background-color: #f1f1f5e1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -15,7 +15,7 @@
 
 .cart-product-name {
     font-size: 1.2rem;
-    color: #e4dada;
+    color: #040404;
     text-decoration: none;
 }
 
@@ -28,7 +28,7 @@
 
 .cart-item-price {
     font-size: 1.2rem;
-    color: #e1d4d4;
+    color: #1d1c1c;
 }
 
 .stockCounter {
@@ -62,13 +62,13 @@
 
 #delete_cart_item {
     font-size: 1.5rem;
-    color: #8f0202;
+    color: #883232;
     cursor: pointer;
 }
 
 /* Cart Summary Styles */
 .cart-summary {
-    background-color: #8c9197;
+    background-color: #5584bd;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -84,7 +84,7 @@
 }
 
 #checkout_btn {
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     font-size: 1.2rem;
     padding: 10px;
@@ -94,5 +94,6 @@
 }
 
 #checkout_btn:hover {
-    background-color: #0056b3;
+    background-color: #989a9c;
+    color:black;
 }

@@ -72,17 +72,23 @@ export default function Shipping() {
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="phone_field" className="form-label">Phone No</label>
-                            <input
-                                type="number"
-                                id="phone_field"
-                                className="form-control"
-                                maxLength="12"
-                                value={phoneNo}
-                                onChange={(e) => setPhoneNo(e.target.value)}
-                                required
-                            />
-                        </div>
+  <label htmlFor="phone_field" className="form-label">
+    Phone No
+  </label>
+  <input
+    type="tel"
+    id="phone_field"
+    className="form-control"
+    maxLength="10"
+    value={phoneNo}
+    onChange={(e) => {
+      // Use a regular expression to remove non-numeric characters
+      const numericValue = e.target.value.replace(/[^0-9]/g, '');
+      setPhoneNo(numericValue);
+    }}
+    required
+  />
+</div>
 
                         <div className="mb-3">
                             <label htmlFor="postal_code_field" className="form-label">Postal Code</label>

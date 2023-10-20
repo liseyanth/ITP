@@ -1,6 +1,6 @@
 import {useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+//VIEW THE PROFILE
 export default function Profile () {
     const { user }  = useSelector(state => state.authState);
 
@@ -20,7 +20,7 @@ export default function Profile () {
                 <p>{user.name}</p>
     
                 <h4>Email Address</h4>
-                <p>{user.email}</p>
+                <p>{user.email}</p> 
 
                 <h4>Joined</h4>
                 <p>{String(user.createdAt).substring(0, 10)}</p>
@@ -36,5 +36,3 @@ export default function Profile () {
         </div>
     )
 }
-
-//hiii

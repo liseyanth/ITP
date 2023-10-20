@@ -38,16 +38,18 @@ nav {
 
 #search_btn {
   background-color: #febd69;
+  height: 2.4rem;
 }
 
 .input-group {
-  width: 90%;
-  margin-right: 35%;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 #search_field {
   height: 2.4rem;
-  padding: 1rem;
+  flex: 1;
 }
 
 #login_btn,

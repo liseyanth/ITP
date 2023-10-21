@@ -52,7 +52,7 @@ export default function Product({ product, col }) {
                 }}
                 className="btn btn-primary d-inline ml-4 add-to-cart-btn"
               >
-                 <Link to="/cart"><span id="cart" className="ml-3">Cart</span></Link>
+                 <Link to="/cart"><span id="cart" className="ml-3">*</span></Link>
                 Add to Cart
               </button>
         </div>

@@ -70,8 +70,6 @@ nav {
   width: 90%;
   margin-right: 35%;
   vertical-align: middle; /* Add this line */
-
-  height: 2.4rem;
 }
 
 .input-group {
@@ -85,9 +83,7 @@ nav {
   padding: 1rem;
   vertical-align: middle; /* Add this line */
 
-  flex: 1;
 }
-
 
 #login_btn,
 #view_btn {
@@ -99,11 +95,6 @@ nav {
 #cart {
   font-size: 1rem;
   color: white;
-}
-.cart-product-name {
-  font-size: 1.2rem;
-  color: #000000; /* Change to black color */
-  text-decoration: none;
 }
 
 #cart_count {
@@ -199,7 +190,7 @@ footer {
 
 /* Product Details Page */
 #product_id {
-  color: rgb(0, 0, 0);
+  color: grey;
   font-size: 0.8rem;
 }
 
@@ -277,23 +268,15 @@ footer {
 }
 
 .cart-item a {
-  color: rgb(3, 0, 0);
+  color: grey;
 }
-
-
 
 #delete_cart_item {
-    color: red;
-    background: rgb(162, 166, 197);
-    padding: 0.3rem 0.5rem; /* Corrected the padding property */
-    font-size: 1.1rem;
-    border: none;
-    cursor: pointer; /* Added a cursor property for better interactivity */
-}
-
-#delete_cart_item:hover {
-    background: black; /* Changed "hover" to ":hover" and specified background color on hover */
-    color: white; /* Changed text color on hover */
+  color: red;
+  background: white;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.1rem;
+  border: none;
 }
 
 #card_item_price {

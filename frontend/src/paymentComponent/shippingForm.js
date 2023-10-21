@@ -179,7 +179,7 @@ function ShippingForm({ enableSecondComponent }) {
                     <input type="email"
                       name="email"
                       className="form-control"
-                      placeholder='Example : loshansp2001@gmail.com'
+                      placeholder='Example : sp@gmail.com'
 
                       value={values.email}
                       onChange={handleInputChange}

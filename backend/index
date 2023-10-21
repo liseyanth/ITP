@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-up Modal</title>
+    <style>
+        /* Styles for the pop-up modal */
+        .modal {
+            display: none; /* Hide the modal by default */
+            position: fixed; /* Position it fixed to the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 1;
+        }
+        
+        /* Modal content */
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Close button in the modal */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        /* OK button in the modal */
+        .ok-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Payment Details Inserted Successfully</h2>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p>Payment details have been inserted successfully!</p>
+        <button class="ok-button" id="okButton">OK</button>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("myModal");
+    const closeModal = document.getElementById("closeModal");
+    const okButton = document.getElementById("okButton");
+
+    // Display the modal when the page loads
+    window.onload = function() {
+        modal.style.display = "block";
+    };
+
+    // Close the modal when the close button is clicked
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // Close the modal when the OK button is clicked
+    okButton.onclick = function() {
+        modal.style.display = "none";
+    };
+</script>
+
+</body>
+</html>

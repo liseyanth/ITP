@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
- 
-import Validate from './formValidation/validateShippingForm'
-import Axios from 'axios'
-function ShippingForm({ enableSecondComponent }) {
+import React, { useState } from 'react';
+import Validate from './formValidation/validateShippingForm';
+import Axios from 'axios';
 
-  
-// roshi
-  // insert data to backend
+function ShippingForm({ enableSecondComponent }) {
   const addToDatabase = () => {
-    Axios.post("http://localhost:3001/insert", {
+    Axios.post('http://localhost:8000/insert', {
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
@@ -17,16 +13,11 @@ function ShippingForm({ enableSecondComponent }) {
       city: values.city,
       address: values.address,
       postalCode: values.postalCode,
-      province: values.province
-       
-    })
+      province: values.province,
+    });
+  };
 
-
-  }
-
- 
-
-  const [divDisabled, setDivDisabled] = useState(false); ////////
+  const [divDisabled, setDivDisabled] = useState(false);
   const [isEditing, setIsEditing] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [values, setValues] = useState({
@@ -45,7 +36,7 @@ function ShippingForm({ enableSecondComponent }) {
 
   const handleButtonClick = () => {
     enableSecondComponent(true);
-    addToDatabase()
+    addToDatabase();
     setDivDisabled(true);
   };
 
@@ -54,10 +45,9 @@ function ShippingForm({ enableSecondComponent }) {
   };
 
   const handleEditClick = () => {
-    resetErrors(); // Reset errors
+    resetErrors();
     setIsEditing(!isEditing);
-    setShowSecondForm(!showSecondForm)
-
+    setShowSecondForm(!showSecondForm);
   };
 
   const handleCheckboxChange = () => {
@@ -65,7 +55,6 @@ function ShippingForm({ enableSecondComponent }) {
   };
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
     const validationErrors = Validate(values);
 
@@ -83,65 +72,68 @@ function ShippingForm({ enableSecondComponent }) {
       [name]: value,
     });
   };
+
   return (
     <div>
-
       {showSecondForm ? (
-      <div className={divDisabled ? 'disabled-div' : ''}>  
-        <div className=  'card mb-3 '  >
-          <div class="card-body1">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <h3 class="textmuted h5 fw-bold mb-4"><a href="#" class="text-muted"></a>
-                    Shipping Address</h3>
+        <div className={divDisabled ? 'disabled-div' : ''}>
+          <div className="card mb-3">
+            <div class="card-body1">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <h3 class="text-muted h5 fw-bold mb-4">
+                      <a href="#" class="text-muted"></a> Shipping Address
+                    </h3>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <h3 class="text-muted h5 fw-bold mb-4">
+                      <a href="#" class="text-muted"></a> Shipping Method
+                    </h3>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <p class="textmuted h6 mb-0">
+                      {values.address}, {values.city}
+                      <br />
+                      {values.province} province,{values.postalCode},
+                      {values.country}.
+                    </p>
+                    <p class="text-muted h8 mb-1">
+                      {values.firstName} {values.lastName} {values.telephone}
+                    </p>
+                  </div>
+                  <p>
+                    <a href="#shippingForm" onClick={handleEditClick}>
+                      <span className="FormSwitcher">Edit</span>
+                    </a>{' '}
+                    payment details
+                  </p>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <p class="text h8 mb-0" style={{ color: '#07630c' }}>
+                      Business Express(10-20 days)
+                    </p>
+                    <button
+                      className="btn btn-sm btn-primary mt-5 "
+                      style={{ backgroundColor: '#00334e' }}
+                      onClick={handleButtonClick}
+                      disabled={divDisabled}
+                    >
+                      Confirm
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <h3 class="textmuted h5 fw-bold mb-4"><a href="#" class="text-muted"></a>
-                    Shipping Method</h3>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <p class="textmuted h6 mb-0"> {values.address},{values.city}<br/>
-                  {values.province} province,{values.postalCode},{values.country}.</p>
-                  <p class="text-muted h8 mb-1">{values.firstName} {values.lastName} {values.telephone}</p>
-                </div>
-                <p> <a href="#shippingForm" onClick={handleEditClick}   ><span className='FormSwitcher'>Edit</span></a> payment details</p>
-
-
-              </div>
-
-              <div class="col-lg-6">
-                <div class="mb-3">
-
-                  <p class="text  h8 mb-0" style={{ color: '#07630c' }}>Business Express(10-20 days)</p>
-                  <button className="btn btn-sm btn-primary mt-5 " style={{ backgroundColor: '#00334e' }} onClick={handleButtonClick} disabled={divDisabled}>Confirm</button>
-                </div>
-              </div>
-
-
-
             </div>
-
-
-
-
           </div>
-
         </div>
-      </div>
-
       ) : (
         <form onSubmit={handleSubmit} id="shippingForm">
-
-          {/* <!-- Left side --> */}
-
-          {/* <!-- Basic information --> */}
           <div className="cards mb-4">
             <div className="cards-body">
               <h3 className="h6 mb-4">Shipping Details</h3>
@@ -149,26 +141,31 @@ function ShippingForm({ enableSecondComponent }) {
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">First name</label>
-                    <input type="text"
+                    <input
+                      type="text"
                       name="firstName"
-                      className="form-control"
+                      className="form-control styled-input"
                       value={values.firstName}
                       onChange={handleInputChange}
                     />
-                    {errors.firstName && <span className='invalid'>*{errors.firstName}*</span>}
+                    {errors.firstName && (
+                      <span className="invalid">*{errors.firstName}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">Last name</label>
-                    <input type="text"
+                    <input
+                      type="text"
                       name="lastName"
-                      className="form-control"
-
+                      className="form-control styled-input"
                       value={values.lastName}
                       onChange={handleInputChange}
                     />
-                    {errors.lastName && <span className='invalid'>*{errors.lastName}*</span>}
+                    {errors.lastName && (
+                      <span className="invalid">*{errors.lastName}*</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -176,38 +173,43 @@ function ShippingForm({ enableSecondComponent }) {
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">Email</label>
-                    <input type="email"
+                    <input
+                      type="email"
                       name="email"
-                      className="form-control"
-                      placeholder='Example : example@gmail.com'
-
+                      className="form-control styled-input"
+                      placeholder="Example: sp2001@gmail.com"
                       value={values.email}
                       onChange={handleInputChange}
                     />
-                    {errors.email && <span className='invalid'>*{errors.email}*</span>}
+                    {errors.email && (
+                      <span className="invalid">*{errors.email}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">Telephone</label>
-                    <input type="tel"
+                    <input
+                      type="tel"
                       name="telephone"
-                      className="form-control"
-                      placeholder='Example : +940762481009 / 0762481009'
-
+                      className="form-control styled-input"
+                      placeholder="Example: +940762481009 / 0762481009"
                       value={values.telephone}
                       onChange={handleInputChange}
                     />
-                    {errors.telephone && <span className='invalid'>*{errors.telephone}*</span>}
+                    {errors.telephone && (
+                      <span className="invalid">*{errors.telephone}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">Country</label>
-
-                    <select name="country" className="form-control" onChange={handleInputChange}
+                    <select
+                      name="country"
+                      className="form-control styled-input"
+                      onChange={handleInputChange}
                       value={values.country}
-
                     >
                       <option value="">Select country...</option>
                       <option value="AFG">Afghanistan</option>
@@ -460,87 +462,96 @@ function ShippingForm({ enableSecondComponent }) {
                       <option value="ZMB">Zambia</option>
                       <option value="ZWE">Zimbabwe</option>
                     </select>
-                    {errors.country && <span className='invalid'>*{errors.country}*</span>}
+                    {errors.country && (
+                      <span className="invalid">*{errors.country}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">City</label>
-                    <input type="text" name="city"
-                      className="form-control"
-
+                    <input
+                      type="text"
+                      name="city"
+                      className="form-control styled-input"
                       value={values.city}
                       onChange={handleInputChange}
                     />
-                    {errors.city && <span className='invalid'>*{errors.city}*</span>}
+                    {errors.city && (
+                      <span className="invalid">*{errors.city}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Address</label>
-                  <input type="text"
-                    className="form-control"
-                    name='address'
-
+                  <input
+                    type="text"
+                    className="form-control styled-input"
+                    name="address"
                     value={values.address}
                     onChange={handleInputChange}
                   />
-                  {errors.address && <span className='invalid'>*{errors.address}*</span>}
+                  {errors.address && (
+                    <span className="invalid">*{errors.address}*</span>
+                  )}
                 </div>
-
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">Postal code</label>
-                    <input type="text"
+                    <input
+                      type="text"
                       name="postalCode"
-
-                      className="form-control"
+                      className="form-control styled-input"
                       value={values.postalCode}
                       onChange={handleInputChange}
-                      maxLength={7}
                     />
-                    {errors.postalCode && <span className='invalid'>*{errors.postalCode}*</span>}
+                    {errors.postalCode && (
+                      <span className="invalid">*{errors.postalCode}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="mb-3">
                     <label className="form-label">State/Province</label>
-                    <input type="text"
+                    <input
+                      type="text"
                       name="province"
-
-                      className="form-control"
+                      className="form-control styled-input"
                       value={values.province}
                       onChange={handleInputChange}
                     />
-                    {errors.province && <span className='invalid'>*{errors.province}*</span>}
+                    {errors.province && (
+                      <span className="invalid">*{errors.province}*</span>
+                    )}
                   </div>
                 </div>
                 <div className="form-check form-switch mt-2">
-                  <input className="form-check-input"
+                  <input
+                    className="form-check-input"
                     type="checkbox"
                     role="switch"
                     checked={isChecked}
                     onChange={handleCheckboxChange}
-
-
                   />
-                  <h6 className="mt-0">set as default details</h6>
+                  <h6 className="mt-0">Set as default details</h6>
                 </div>
                 <div className="mb-4">
                   <div className="d-grid gap-2 col-3 mx-auto">
-                    <button className="btn btn-sm btn-primary mt-5 " style={{ backgroundColor: '#00334e' }}   >Save</button>
-
+                    <button
+                      className="btn btn-sm btn-primary mt-5 styled-button"
+                      style={{ backgroundColor: '#00334e' }}
+                    >
+                      Save
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </form>
-
       )}
-      
     </div>
   );
 }
 
-export default ShippingForm
+export default ShippingForm;

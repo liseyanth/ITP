@@ -4,7 +4,7 @@
 .cart-item {
     margin: 20px 0;
     padding: 15px;
-    background-color: #f1f1f5e1;
+    background-color: #a4a4c2e1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -12,11 +12,11 @@
     max-width: 100%;
     height: auto;
 }
-
 .cart-product-name {
-    font-size: 1.2rem;
-    color: #040404;
-    text-decoration: none;
+    font-size: 1.4rem;
+    color: #000000; /* Change to black color */
+    font-weight: bold; /* Make the text bold */
+    /* You can also add more styles like text-shadow or background-color for visibility */
 }
 
 .cart-price-quantity {

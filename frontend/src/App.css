@@ -61,6 +61,11 @@ nav {
   font-size: 1rem;
   color: white;
 }
+.cart-product-name {
+  font-size: 1.2rem;
+  color: #000000; /* Change to black color */
+  text-decoration: none;
+}
 
 #cart_count {
   background-color: #febd69;
@@ -155,7 +160,7 @@ footer {
 
 /* Product Details Page */
 #product_id {
-  color: grey;
+  color: rgb(0, 0, 0);
   font-size: 0.8rem;
 }
 
@@ -233,15 +238,23 @@ footer {
 }
 
 .cart-item a {
-  color: grey;
+  color: rgb(3, 0, 0);
 }
 
+
+
 #delete_cart_item {
-  color: red;
-  background: white;
-  padding: 0.3rem 0.5rem;
-  font-size: 1.1rem;
-  border: none;
+    color: red;
+    background: rgb(162, 166, 197);
+    padding: 0.3rem 0.5rem; /* Corrected the padding property */
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer; /* Added a cursor property for better interactivity */
+}
+
+#delete_cart_item:hover {
+    background: black; /* Changed "hover" to ":hover" and specified background color on hover */
+    color: white; /* Changed text color on hover */
 }
 
 #card_item_price {

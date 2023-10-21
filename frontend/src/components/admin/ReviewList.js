@@ -128,7 +128,6 @@ const generatePDF = () => {
   // Add some space after the table
   yOffset += tableHeight;
 
-  // Save the PDF with a specific filename
   pdf.save("ester_aura_reviews.pdf");
 };
 
@@ -197,14 +196,18 @@ const generatePDF = () => {
             <Loader />
           ) : (
             <MDBDataTable
-              data={setReviews()}
-              bordered
-              striped
-              hover
-              className="px-3"
-              noBottomColumns={true}
-              id="reviews-table"
-            />
+  data={setReviews()}
+  bordered
+  striped
+  hover
+  className="px-3"
+  noBottomColumns={true}
+  entries={5}  // Default number of entries per page
+  entriesOptions={[5, 10, 15, 20]}  // Customize the entries options
+  id="reviews-table"
+/>
+
+
           )}
         </Fragment>
       </Col>

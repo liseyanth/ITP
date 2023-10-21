@@ -119,7 +119,7 @@ export  default function ProductSearch(){
                                 <div className="mt-5">
                                     <h4 className="mb-3">Ratings</h4>
                                     <ul className="pl-0">
-                                        {[5, 4, 3, 2, 1].map(star =>
+                                        {[0,5, 4, 3, 2, 1,].map(star =>
                                              <li
                                              style={{
                                                  cursor:"pointer",

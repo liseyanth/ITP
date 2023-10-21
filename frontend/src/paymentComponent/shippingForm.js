@@ -496,6 +496,7 @@ function ShippingForm({ enableSecondComponent }) {
                       className="form-control"
                       value={values.postalCode}
                       onChange={handleInputChange}
+                      maxLength={7}
                     />
                     {errors.postalCode && <span className='invalid'>*{errors.postalCode}*</span>}
                   </div>

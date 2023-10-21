@@ -63,7 +63,13 @@ nav {
 
 #search_btn {
   background-color: #febd69;
-  height: 2.4rem;
+  vertical-align: middle; /* Add this line */
+}
+
+.input-group {
+  width: 90%;
+  margin-right: 35%;
+  vertical-align: middle; /* Add this line */
 }
 
 .input-group {
@@ -74,7 +80,9 @@ nav {
 
 #search_field {
   height: 2.4rem;
-  flex: 1;
+  padding: 1rem;
+  vertical-align: middle; /* Add this line */
+
 }
 
 #login_btn,

@@ -70,7 +70,7 @@ nav {
   width: 90%;
   margin-right: 35%;
   vertical-align: middle; /* Add this line */
-=======
+
   height: 2.4rem;
 }
 
@@ -84,7 +84,7 @@ nav {
   height: 2.4rem;
   padding: 1rem;
   vertical-align: middle; /* Add this line */
-=======
+
   flex: 1;
 }
 

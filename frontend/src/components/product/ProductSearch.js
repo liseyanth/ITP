@@ -37,17 +37,24 @@ export  default function ProductSearch(){
         setCurrentPage(pageNo)
        
     }
-
-    useEffect(()=>{
-        if(error) {
-            return toast.error(error,{
+//change here 
+    useEffect(() => {
+        console.log('useEffect: Start');
+    
+        if (error) {
+            console.log('Error:', error);
+            toast.error(error, {
                 position: toast.POSITION.BOTTOM_CENTER
-            })
+            });
         }
-        dispatch(getProducts(keyword, priceChanged, category, rating, currentPage)) 
-    }, [error, dispatch, currentPage, keyword, priceChanged, category, rating])
-
-
+    
+        console.log('Dispatching getProducts:', { keyword, priceChanged, category, rating, currentPage });
+    
+        dispatch(getProducts(keyword, priceChanged, category, rating, currentPage));
+    
+        console.log('useEffect: End');
+    }, [error, dispatch, currentPage, keyword, priceChanged, category, rating]);
+    
     return (
         <Fragment>
             {loading ? <Loader/>:

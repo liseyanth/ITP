@@ -97,7 +97,7 @@ export default function ProductDetail() {
             </div>
             <div className="col-lg-6 product-details">
               <h3 className="product-name">{product.name}</h3>
-              <p className="product-id">Product ID: {product._id}</p>
+              
               <div className="rating-outer">
                 <div className="rating-inner" style={{ width: `${product.ratings / 5 * 100}%` }}></div>
               </div>

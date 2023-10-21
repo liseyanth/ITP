@@ -16,11 +16,11 @@ export default function UserOrders () {
     const setOrders = () => {
         const data = {
             columns: [
-                {
+               /* {
                     label: "Order ID",
                     field: 'id',
                     sort: "asc"
-                },
+                },*/
                 {
                     label: "Number of Items",
                     field: 'numOfItems',

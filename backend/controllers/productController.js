@@ -154,6 +154,7 @@ exports.createReview = catchAsyncError(async (req, res, next) => {
         // Update the existing review
         existingReview.comment = comment;
         existingReview.rating = rating;
+        existingReview.createdAt = Date.now();
     } else {
         // Create a new review
         product.reviews.push(review);

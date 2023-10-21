@@ -1,12 +1,22 @@
 import React, { useState } from 'react'
-import Paypal from './PayPal';
+import Paypal from '../components/admin/PayPal';
 import PopupForm from './PopUpCashOnDelivery';
+import ConfirmOrder from '../components/cart/ConfirmOrder'
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+
 function PaymentDetails({ isEnabled }) {
   const [checkout, setCheckOut] = useState(false);
 
 
-
-
+  const { shippingInfo, items:cartItems } = useSelector(state => state.cartState);
+    const { user } = useSelector(state => state.authState);
+    const navigate = useNavigate();
+  const itemsPrice = cartItems.reduce((acc, item)=> (acc + item.price * item.quantity),0);
+  const shippingPrice = itemsPrice > 200 ? 0 : 25;
+  let taxPrice = Number(0.05 * itemsPrice);
+  const totalPrice = Number(itemsPrice + shippingPrice + taxPrice).toFixed(2);
+  taxPrice = Number(taxPrice).toFixed(2)
 
   //pop up form
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -33,6 +43,7 @@ function PaymentDetails({ isEnabled }) {
     
   };
 
+  //order summary
 
   return (
     <div style={containerStyle}>
@@ -54,19 +65,20 @@ function PaymentDetails({ isEnabled }) {
 
 
 
-
           <div className="card mb-4">
             <div className="card-body1">
-              <h3 className="h6">Check Out summary</h3>
-              <div className="billing">
-                <div className="d-flex justify-content-between mt-4"><span>Subtotal</span><span className="font-weight-bold"> US $120</span></div>
-                <div className="d-flex justify-content-between mt-2"><span>Offer</span><span className="font-weight-bold">- US $15</span></div>
-                <div className="d-flex justify-content-between mt-2"><span>Shipping Charge</span><span className="font-weight-bold">+ US $5</span></div>
+            <div id="order_summary">
+                        <h4>Order Summary</h4>
+                        <hr />
+                        <p>Subtotal:  <span className="order-summary-values">LKR{itemsPrice}</span></p>
+                        <p>Shipping: <span className="order-summary-values">LKR{shippingPrice}</span></p>
+                        <p>Tax:  <span className="order-summary-values">LKR{taxPrice}</span></p>
 
-                <hr />
-                <div className="d-flex justify-content-between mt-1"><span className="font-weight-bold">Grand Total</span><span className="font-weight-bold text-success">US $110</span></div>
-              </div>
+                        <hr />
+
+                        <p>Total: <span className="order-summary-values">LKR{totalPrice}</span></p>
             </div>
+          </div>
           </div>
 
 

@@ -73,7 +73,7 @@ app.post("/insert", async (req, res) => {
       res.json(result);
     } catch (err) {
       console.error(err);
-      //res.status(500).json({ error: "Error reading data" });
+      res.status(500).json({ error: "Error reading data" });
     }
   });
   

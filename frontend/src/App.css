@@ -38,17 +38,21 @@ nav {
 
 #search_btn {
   background-color: #febd69;
+  vertical-align: middle; /* Add this line */
 }
 
 .input-group {
   width: 90%;
   margin-right: 35%;
+  vertical-align: middle; /* Add this line */
 }
 
 #search_field {
   height: 2.4rem;
   padding: 1rem;
+  vertical-align: middle; /* Add this line */
 }
+
 
 #login_btn,
 #view_btn {

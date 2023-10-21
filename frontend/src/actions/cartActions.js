@@ -17,4 +17,3 @@ export const addCartItem = (id, quantity) => async(dispatch) => {
         
     }
 }
-//hello

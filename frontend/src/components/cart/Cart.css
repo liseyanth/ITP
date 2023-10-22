@@ -4,7 +4,7 @@
 .cart-item {
     margin: 20px 0;
     padding: 15px;
-    background-color: #f1f1f5e1;
+    background-color: #cacad9e1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -15,7 +15,7 @@
 
 .cart-product-name {
     font-size: 1.2rem;
-    color: #040404;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -93,13 +93,14 @@
 
 /* Cart Summary Styles */
 .cart-summary {
-    background-color: #5584bd;
+    background-color: #be8af1;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cart-summary h4 {
     font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
     color: #000000;
 }
@@ -119,6 +120,6 @@
 }
 
 #checkout_btn:hover {
-    background-color: #989a9c;
+    background-color: #e7ecf2;
     color:black;
 }

@@ -31,7 +31,8 @@ export default function Home() {
             {loading ? <Loader /> :
                 <Fragment>
                     <MetaData title={'Buy Best Products'} />
-                    <h1 className="products-heading">Explore Ester Aura's Organic Cosmetic Products made with Ayurvedic wisdom</h1>
+                    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"/>
+
                     <section id="products" className="container mt-5">
                         <div className="row">
                             {products && products.map(product => (

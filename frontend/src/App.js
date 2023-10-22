@@ -106,7 +106,7 @@ function App() {
                   <Route path='/admin/users' element={ <ProtectedRoute isAdmin={true}><UserList/></ProtectedRoute> } />
                   <Route path='/admin/user/:id' element={ <ProtectedRoute isAdmin={true}><UpdateUser/></ProtectedRoute> } />
                   <Route path='/admin/reviews' element={ <ProtectedRoute isAdmin={true}><ReviewList/></ProtectedRoute> } />
-                  
+                  <Route path='admin/pay' element={ <ProtectedRoute isAdmin={true}><Pay/></ProtectedRoute> } />
                 </Routes>
             <Footer/>
         </HelmetProvider>
@@ -117,4 +117,3 @@ function App() {
 }
 
 export default App;
-//<Route path='/admin/Pay' element={ <ProtectedRoute isAdmin={true}><Pay/></ProtectedRoute> } />

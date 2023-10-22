@@ -33,6 +33,10 @@ export default function Sidebar () {
                 <li>
                     <Link to="/admin/reviews"><i className="fa fa-users"></i> Reviews</Link>
                 </li>
+
+                <li>
+                    <Link to="/admin/Pay"><i className="fa fa-users"></i>Payment</Link>
+                </li>
         
             </ul>
             </nav>

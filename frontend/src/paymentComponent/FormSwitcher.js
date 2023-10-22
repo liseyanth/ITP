@@ -16,7 +16,7 @@ function FormSwitcher() {
        <div className="container-fluid ">
       <div className="container">
           <div className="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row mt-3">
-            <h2 className="h5 mb-3 mb-lg-0"><a href="#" className="text-muted"></a>checkout</h2>
+            <h2 className="h5 mb-3 mb-lg-0"><a href="#" className="text-muted"></a>Payment Form for PayPal</h2>
            
           </div>
           <hr/>

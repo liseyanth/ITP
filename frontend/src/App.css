@@ -94,7 +94,7 @@ nav {
 
 #cart {
   font-size: 1rem;
-  color: white;
+  color: rgb(244, 242, 242);
 }
 
 #cart_count {
@@ -193,7 +193,7 @@ footer {
 
 /* Product Details Page */
 #product_id {
-  color: grey;
+  color: rgb(12, 11, 11);
   font-size: 0.8rem;
 }
 
@@ -271,7 +271,8 @@ footer {
 }
 
 .cart-item a {
-  color: grey;
+  color: rgb(8, 8, 8);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #delete_cart_item {
@@ -280,6 +281,11 @@ footer {
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
   border: none;
+  
+}
+#delete_cart_item:hover {
+  color: rgb(255, 255, 255);
+  background-color: #000000; /* Change text color to black on hover */
 }
 
 #card_item_price {

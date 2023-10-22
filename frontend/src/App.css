@@ -109,7 +109,10 @@ nav {
 /* Home page */
 #products_heading {
   margin-top: 1.8rem;
+  font-family: 'Lato', sans-serif;
+  color:  #FF6600; /* Your Chosen Color */
 }
+
 
 .card {
   height: 100%;

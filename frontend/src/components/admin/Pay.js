@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Axios from 'axios'
-import Sidebar from '../admin/Sidebar'
-function Pay() {
+import { Link } from "react-router-dom";
+function Payment() {
 
      //read data from database 
        const[paymentDetails,setPaymentDetails]=useState([])
@@ -52,13 +52,14 @@ function Pay() {
 
 
   return (
+    
  <div>
-
-<div className="row">
+    <div className="row">
         <div className="col-12 col-md-2">
                 <Sidebar/>
         </div>
-
+   
+        
     <div className="table-responsive">
     <div className="form-group pull-right " >
     <input type="text" className="search form-control" placeholder="What you looking for?"
@@ -66,9 +67,10 @@ function Pay() {
     onChange={handleSearchInputChange}/>
     <FaSearch className="search-icon" />
      </div>
+   
      
   
-        <table className="table table-striped table-hover">
+        <table className="Pay">
           
             <thead>
                 <tr>
@@ -205,9 +207,7 @@ function Pay() {
 </div>
 </div>
 
- 
-
   )
 }
 
-export default Pay
+export default Payment

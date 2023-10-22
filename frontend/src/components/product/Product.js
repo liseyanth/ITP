@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addCartItem } from '../../actions/cartActions';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus, faEye } from '@fortawesome/free-solid-svg-icons';
 
 export default function Product({ product, col }) {
   const dispatch = useDispatch();
@@ -18,10 +20,13 @@ export default function Product({ product, col }) {
             src={product.images[0].image}
             alt={product.name}
           />
-)}
+        )}
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">
-            <Link to={`/product/${product._id}`}>{product.name}</Link>
+            <Link to={`/product/${product._id}`}>
+              {product.name}
+             
+            </Link>
           </h5>
           <div className="ratings mt-auto">
             <div className="rating-outer">
@@ -34,7 +39,7 @@ export default function Product({ product, col }) {
           </div>
           <p className="card-text">LKR{product.price}</p>
           <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block">
-            View Details
+            <FontAwesomeIcon icon={faEye} className="mr-2" /> View Details {/* Add an eye icon to the "View Details" button */}
           </Link>
           <button
             type="button"
@@ -48,11 +53,17 @@ export default function Product({ product, col }) {
             }}
             className="btn btn-primary d-inline ml-4 add-to-cart-btn"
           >
-            <Link to="/cart"><span id="cart" className="ml-3" role="img" aria-label="cart-icon">🛒</span></Link> {/* Add a cart icon */}
+            <Link to="/cart">
+              <span id="cart" role="img" aria-label="cart-icon" style={{ fontSize: '24px' }}>
+                🛒
+              </span> {/* Make the cart icon bigger */}
+            </Link>
             Add to Cart
           </button>
         </div>
       </div>
     </div>
+    
   );
 }
+// <FontAwesomeIcon icon={faEye} className="ml-2" /> {/* Add an eye icon */ line 28

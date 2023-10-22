@@ -2,21 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addCartItem } from '../../actions/cartActions';
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useState } from 'react';
 
 export default function Product({ product, col }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-
-  const handleAddToCart = () => {
-    dispatch(addCartItem(product._id, quantity));
-
-    toast('Cart Item Added!', {
-      type: 'success',
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-  };
 
   return (
     <div className={`col-sm-12 col-md-6 col-lg-${col} my-3`}>
@@ -27,7 +18,7 @@ export default function Product({ product, col }) {
             src={product.images[0].image}
             alt={product.name}
           />
-        )}
+)}
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">
             <Link to={`/product/${product._id}`}>{product.name}</Link>
@@ -45,9 +36,21 @@ export default function Product({ product, col }) {
           <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block">
             View Details
           </Link>
-          <Link to="/cart" className="btn btn-primary d-inline ml-4 add-to-cart-btn" onClick={handleAddToCart}>
-            <span id="cart" className="ml-3">*</span> Add to Cart
-          </Link>
+          <button
+            type="button"
+            disabled={product.stock === 0}
+            onClick={() => {
+              dispatch(addCartItem(product._id, quantity));
+              toast('Cart Item Added!', {
+                type: 'success',
+                position: toast.POSITION.BOTTOM_CENTER
+              });
+            }}
+            className="btn btn-primary d-inline ml-4 add-to-cart-btn"
+          >
+            <Link to="/cart"><span id="cart" className="ml-3" role="img" aria-label="cart-icon">🛒</span></Link> {/* Add a cart icon */}
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

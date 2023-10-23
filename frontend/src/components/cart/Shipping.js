@@ -100,18 +100,22 @@ export default function Shipping() {
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="postal_code_field" className="form-label">Postal Code</label>
-                            <input
-                                type="number"
-                                id="postal_code_field"
-                                className="form-control"
-                                value={postalCode}
-                                onChange={(e) => setPostalCode(e.target.value)}
-                                placeholder="Enter your postal code"
-                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
-                                required
-                            />
-                        </div>
+    <label htmlFor="postal_code_field" className="form-label">Postal Code</label>
+    <input
+        type="text" /* Change the input type to text */
+        id="postal_code_field"
+        className="form-control"
+        value={postalCode}
+        onChange={(e) => {
+            // Limit the input to 6 characters
+            const value = e.target.value.substring(0, 6);
+            setPostalCode(value);
+        }}
+        placeholder="Enter your postal code (6 digits)"
+        style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
+        required
+    />
+</div>
 
                         <div className="mb-3">
                             <label htmlFor="country_field" className="form-label">Country</label>

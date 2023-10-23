@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
+import React from 'react';
 
 export default function Sidebar () {
 
@@ -38,8 +39,11 @@ export default function Sidebar () {
                     <Link to="/admin/Pay"><i className="fa fa-users"></i>Payment</Link>
                 </li>
                 <li>
+
                 <Link to="/pages/Insert"><i className="fa fa-users"></i>Discount</Link>
-                    
+
+                    <Link to="/admin/viewticket"><i className="fa fa-users"></i>ViewTicket</Link>
+
                 </li>
         
             </ul>

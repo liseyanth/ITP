@@ -20,7 +20,7 @@ import UpdatePassword from './components/user/UpdatePassword';
 import ForgotPassword from './components/user/ForgotPassword';
 import ResetPassword from './components/user/ResetPassword';
 import ViewQuestions from './components/ViewQuestions';
-import ViewTicket from './components/ViewTicket';
+import ViewTicket from './components/admin/ViewTicket';
 import AddTicket from './components/AddTicket';
 import EditTicket from './components/EditTicket';
 import Pay from'./components/cart/paypal'
@@ -46,6 +46,11 @@ import ReviewList from './components/admin/ReviewList';
 import ShippingForm from './paymentComponent/shippingForm';
 import PaymentDetails from './paymentComponent/paymentDetails';
 import FormSwitcher from './paymentComponent/FormSwitcher';
+import View from './components/View';
+
+
+
+
 
 
 function App() {
@@ -80,7 +85,10 @@ function App() {
                       <Route path='/password/forgot' element={<ForgotPassword/> } />
                       <Route path='/password/reset/:token' element={<ResetPassword/> } />
                       <Route path="/faq" element={<ViewQuestions />} />
-                      <Route path="/viewticket" element={<ViewTicket/>} />
+                      <Route path="/viewticket" element={<View/>} />
+                    
+                    
+                      
                       <Route path="/addticket" element={<AddTicket/>} />|
                        <Route path="/editticket/:id" element={<EditTicket/>} />
                       <Route path='/cart' element={<Cart/> } />
@@ -107,6 +115,7 @@ function App() {
                   <Route path='/admin/user/:id' element={ <ProtectedRoute isAdmin={true}><UpdateUser/></ProtectedRoute> } />
                   <Route path='/admin/reviews' element={ <ProtectedRoute isAdmin={true}><ReviewList/></ProtectedRoute> } />
                   <Route path='admin/pay' element={ <ProtectedRoute isAdmin={true}><Pay/></ProtectedRoute> } />
+                  <Route path='admin/viewticket' element={ <ProtectedRoute isAdmin={true}><ViewTicket/></ProtectedRoute> } />
                 </Routes>
             <Footer/>
         </HelmetProvider>

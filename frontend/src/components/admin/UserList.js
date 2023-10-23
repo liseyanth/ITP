@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react"
+import { Fragment, useEffect,useRef } from "react"
 import { Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -8,12 +8,44 @@ import Loader from '../layouts/Loader';
 import { MDBDataTable} from 'mdbreact';
 import {toast } from 'react-toastify'
 import Sidebar from "./Sidebar"
+import "./r.css"
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
+
 
 export default function UserList() {
     const { users = [], loading = true, error, isUserDeleted }  = useSelector(state => state.userState)
-
     const dispatch = useDispatch();
+    const pref=useRef(null);
+    const print = () => {
+   
+        const container  = pref.current;
+    console.log("Lalu")
+          html2canvas(container).then((Value)=>
+    
+          {
+            const Url = Value.toDataURL('Report/png');
+            const doc = new jsPDF('l','mm','a4');
+            const h = doc.internal.pageSize.getHeight();
+            const w = doc.internal.pageSize.getWidth();
+    
+            const CH = Value.height;
+            const CW = Value.width;
+    
+            doc.addImage(Url,'PNG',0,0,w,h);
+            doc.save('Report.pdf')
+    
+          }).catch((error)=>
+          {
+            console.log('fetch fail'+error);
+          })
+    }
 
+
+
+
+    
     const setUsers = () => {
         const data = {
             columns : [
@@ -22,6 +54,7 @@ export default function UserList() {
                     field: 'id',
                     sort: 'asc'
                 },
+
                 {
                     label: 'Name',
                     field: 'name',
@@ -46,9 +79,10 @@ export default function UserList() {
             rows : []
         }
 
+
         users.forEach( user => {
             data.rows.push({
-                id: user._id,
+                id: user.userid,
                 name: user.name,
                 email : user.email,
                 role: user.role ,
@@ -100,18 +134,29 @@ export default function UserList() {
         </div>
         <div className="col-12 col-md-10">
             <h1 className="my-4">User List</h1>
-            <Fragment>
+         <div className="btnreport"
+         onClick={print}>
+            Download Report
+         </div>
+        
+            <Fragment  >
                 {loading ? <Loader/> : 
+                 <div ref={pref}>
                     <MDBDataTable
+                       
                         data={setUsers()}
                         bordered
                         striped
                         hover
+                        entriesOptions={[5, 10, 15, 20]}
+                        noBottomColumns={true} 
                         className="px-3"
                     />
+                                </div>
                 }
             </Fragment>
+            </div>
         </div>
-    </div>
+    
     )
 }

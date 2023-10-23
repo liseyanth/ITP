@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import Axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-function pay() {
+import React,{useEffect, useState} from 'react'
+import { FaSearch } from 'react-icons/fa'
+import Axios from 'axios'
+import { Link } from "react-router-dom";
+function Payment() {
 
      //read data from database 
        const[paymentDetails,setPaymentDetails]=useState([])
@@ -15,7 +13,7 @@ function pay() {
     setSearchQuery(event.target.value);
   };
 
- // v2
+
   useEffect(()=>{
     Axios.get("http://localhost:8000/read").then((response)=>
     {
@@ -26,21 +24,11 @@ function pay() {
 
 
   //delete 
-  const deletePayment = async (id) => {
-    const confirmed = window.confirm("Are you sure you want to delete this payment?");
-    if (confirmed) {
-      try {
-        await Axios.delete(`http://localhost:8000/delete/${id}`);
-        // Remove the deleted item from paymentDetails
-        setPaymentDetails((prevPaymentDetails) => prevPaymentDetails.filter(item => item._id !== id));
-        alert('Payment deleted successfully');
-      } catch (error) {
-        console.error('Error deleting user:', error);
-        alert('An error occurred while deleting payment');
+      const deletePayment=(id)=>{
+        Axios.delete(`http://localhost:8000/delete/${id}`)
       }
-    }
-  };
-  
+
+ 
   // Filter payment details based on the search query
   const filteredPaymentDetails = paymentDetails.filter((val) => {
     const fieldsToSearch = [
@@ -64,12 +52,14 @@ function pay() {
 
 
   return (
+    
  <div>
-
-<div className="row">
+    <div className="row">
         <div className="col-12 col-md-2">
                 <Sidebar/>
         </div>
+   
+        
     <div className="table-responsive">
     <div className="form-group pull-right " >
     <input type="text" className="search form-control" placeholder="What you looking for?"
@@ -77,9 +67,10 @@ function pay() {
     onChange={handleSearchInputChange}/>
     <FaSearch className="search-icon" />
      </div>
+   
      
   
-        <table className="table table-striped table-hover">
+        <table className="Pay">
           
             <thead>
                 <tr>
@@ -215,7 +206,8 @@ function pay() {
 
 </div>
 </div>
+
   )
 }
 
-export default payment
+export default Payment

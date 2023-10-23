@@ -17,7 +17,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
     const  submitHandler = (e) => {
         e.preventDefault();
         dispatch(login(email, password))
-    }
+    };
+   
 
     useEffect(() => {
         if(isAuthenticated) {
@@ -28,11 +29,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
             toast(error, {
                 position: toast.POSITION.BOTTOM_CENTER,
                 type: 'error',
-                onOpen: ()=> { dispatch(clearAuthError) }
+                onOpen: ()=> { dispatch(clearAuthError) },
             })
-            return
+            
         }
-    },[error, isAuthenticated, dispatch, navigate])
+    },[error, isAuthenticated, dispatch, navigate]);
 
     return (
         <Fragment>
@@ -79,5 +80,5 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
                 </div>
             </div>
         </Fragment>
-    )
+    )    
     }

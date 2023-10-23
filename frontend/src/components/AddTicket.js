@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+// hii shiva 
 export default function AddTicket() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function AddTicket() {
           throw new Error('Failed to add a new ticket');
         }
         alert('Ticket Added Successfully');
-        navigate('/viewticket');
+        navigate('/viewTicket');
         setFormData({
           ...formData, // Keep customerId as 1
           subject: '',

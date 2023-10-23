@@ -105,10 +105,14 @@ export default function ConfirmOrder () {
                         <p>Total: <span className="order-summary-values">LKR{totalPrice}</span></p>
 
                         <hr />
+
+                        <p>Total: <span className="order-summary-values">LKR{totalPrice}</span></p>
+
+                        <hr />
                         <button id="checkout_btn" onClick={processPayment} className="btn btn-primary btn-block">Proceed to Payment</button>
 
                         <hr/>
-                        <Link to="/pay" className="btn btn-primary btn-block" onclick={processPay}>Pay thorugh paypal</Link>
+                        <Link to="/pay" className="btn ml-3">Paypal</Link>
                        
                        
                     </div>

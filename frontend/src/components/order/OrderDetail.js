@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { orderDetail as orderDetailAction } from '../../actions/orderActions';
 import jsPDF from 'jspdf';
-import logoImage from './image/logo.jpg' // Adjust the path to your logo image
-
+import logoImage from './image/logo.jpg'; // Adjust the path to your logo image
 
 export default function OrderDetail() {
   const { orderDetail, loading } = useSelector((state) => state.orderState);
@@ -22,6 +21,9 @@ export default function OrderDetail() {
   const isPaid = paymentInfo && paymentInfo.status === 'succeeded' ? true : false;
   const dispatch = useDispatch();
   const { id } = useParams();
+  const total = orderItems.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
 
   useEffect(() => {
     dispatch(orderDetailAction(id));
@@ -33,14 +35,13 @@ export default function OrderDetail() {
     // Set bold font
     doc.setFont('helvetica', 'bold');
 
-     // Add the logo image
-  doc.addImage(logoImage, 'PNG', 10, 10, 50, 20); // Adjust the coordinates and dimensions as needed
+    // Add the logo image
+    doc.addImage(logoImage, 'PNG', 10, 10, 50, 20); // Adjust the coordinates and dimensions as needed
 
     // Add company name and slogan
     doc.setFontSize(20);
     doc.text('Ester Aura', 105, 20, 'center');
     doc.setLineWidth(0.5);
-    //doc.line(75, 28, 135, 28); // Underline
     doc.setFontSize(14);
     doc.text('Radiate Your Inner Glow', 105, 30, 'center');
 
@@ -49,7 +50,6 @@ export default function OrderDetail() {
 
     // Add order details
     doc.setFontSize(12);
-    doc.text(`Order # ${orderDetail._id}`, 10, 50);
     doc.text(`Name: ${user.name}`, 10, 60);
     doc.text(`Phone: ${shippingInfo.phoneNo}`, 10, 70);
     doc.text(
@@ -57,10 +57,10 @@ export default function OrderDetail() {
       10,
       80
     );
-    doc.text(`Amount: $${totalPrice}`, 10, 90);
+    doc.text(`Amount: LKR${totalPrice}`, 10, 90);
     doc.text(`Payment: Payment of ${user.name} is done by Stripe`, 10, 100);
     doc.text(`Order Status: ${orderStatus}`, 10, 110);
-    
+
     // Add current date
     const currentDate = new Date().toLocaleDateString();
     doc.text(`Date: ${currentDate}`, 160, 20);
@@ -72,10 +72,13 @@ export default function OrderDetail() {
     let y = 140;
     orderItems.forEach((item) => {
       doc.text(`Product: ${item.name}`, 10, y);
-      doc.text(`Price: $${item.price}`, 10, y + 10);
+      doc.text(`Price: LKR${item.price}`, 10, y + 10);
       doc.text(`Quantity: ${item.quantity} Piece(s)`, 10, y + 20);
       y += 40; // Adjust spacing between items
     });
+
+    // Display the total price
+    doc.text(`Total Price: LKR${total}`, 10, y);
 
     // Save the PDF
     doc.save('PaymentInvoice.pdf');
@@ -94,8 +97,8 @@ export default function OrderDetail() {
           </div>
           <div className="row d-flex justify-content-between">
             <div className="col-12 col-lg-8 mt-5 order-details">
-              <h1 className="my-5">Order # {orderDetail._id}</h1>
-              <h4 className="mb-4">Shipping Info</h4>
+            <h4 className="mb-4"><strong>Payment Invoice</strong></h4>
+
               <p>
                 <b>Name:</b> {user.name}
               </p>
@@ -108,7 +111,7 @@ export default function OrderDetail() {
                 {shippingInfo.country}
               </p>
               <p>
-                <b>Amount:</b> ${totalPrice}
+                <b>Amount:</b> LKR{totalPrice}
               </p>
               <hr />
               <h4 className="my-4">Payment</h4>
@@ -119,7 +122,7 @@ export default function OrderDetail() {
               <p className={orderStatus && orderStatus.includes('Delivered') ? 'greenColor' : 'redColor'}>
                 <b>{orderStatus}</b>
               </p>
-              <h4 className="my-4">Order Items:</h4>
+              <h4 className="my-4"><b>Purchased Items:</b></h4>
               <hr />
               <div className="cart-item my-1">
                 {orderItems &&
@@ -132,7 +135,7 @@ export default function OrderDetail() {
                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                       </div>
                       <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                        <p>${item.price}</p>
+                        <p>LKR{item.price}</p>
                       </div>
                       <div className="col-4 col-lg-3 mt-4 mt-lg-0">
                         <p>{item.quantity} Piece(s)</p>
@@ -141,6 +144,14 @@ export default function OrderDetail() {
                   ))}
               </div>
               <hr />
+              {/* Display the total price */}
+              <div className="text-end">
+                <p className="fw-bold">Total Price Of The Purchase: LKR{total}</p>
+              </div>
+              <div className="text-end">
+                <p className="fw-bold">Total Price After shipping Fee and Tax Charges: LKR{totalPrice}</p>
+              </div>
+              
             </div>
           </div>
         </Fragment>

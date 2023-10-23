@@ -134,24 +134,24 @@ export  default function NewProduct () {
                                   ></textarea>
                             </div>
 
-                            <div className="form-group">
+                           <div className="form-group">
                                 <label htmlFor="category_field">Category</label>
-                                <select onChange={e => setCategory(e.target.value)} className="form-control" id="category_field">
+                                <select
+                                    onChange={e => setCategory(e.target.value)}
+                                    className="form-control"
+                                    id="category_field"
+                                    style={{
+                                        verticalAlign: 'middle',  // Vertically center the text
+                                        padding: '5px 10px',      // Adjust padding as needed
+                                        lineHeight: '1.6',        // Vertically center the text
+                                        width: '100%'             // Ensure entire text is visible
+                                    }}
+                                >
                                     <option value="">Select</option>
-                                    {categories.map( category => (
+                                    {categories.map(category => (
                                         <option key={category} value={category}>{category}</option>
                                     ))}
                                 </select>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="stock_field">Stock</label>
-                                <input
-                                type="number"
-                                id="stock_field"
-                                className="form-control"
-                                onChange={e => setStock(e.target.value)}
-                                value={stock}
-                                />
                             </div>
 
                             <div className="form-group">

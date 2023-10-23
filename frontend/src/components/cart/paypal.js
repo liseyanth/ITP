@@ -1,6 +1,9 @@
 import React,{useEffect, useState} from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Axios from 'axios'
+import Sidebar from '../admin/Sidebar'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Pay() {
 
      //read data from database 
@@ -21,12 +24,29 @@ function Pay() {
       
   },[])
 
+ //delete 
+ const deletePayment = (id) => {
+    Axios.delete(`http://localhost:8000/delete/${id}`)
+      .then((response) => {
+        if (response.data.success) {
+          // User deleted successfully
+          toast.success(response.data.message);
+          // You can also remove the deleted user from your state here if needed
+        } else {
+          toast.error(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting user:', error);
+        toast.error('An error occurred while deleting user');
+      });
+  };
+  
+  
 
-  //delete 
-      const deletePayment=(id)=>{
-        Axios.delete(`http://localhost:8000/delete/${id}`)
-      }
+ 
 
+  
  
   // Filter payment details based on the search query
   const filteredPaymentDetails = paymentDetails.filter((val) => {
@@ -52,6 +72,9 @@ function Pay() {
 
   return (
  <div>
+
+
+
     <div className="table-responsive">
     <div className="form-group pull-right " >
     <input type="text" className="search form-control" placeholder="What you looking for?"
@@ -196,6 +219,8 @@ function Pay() {
    </div>
 
 </div>
+
+
  
 
   )

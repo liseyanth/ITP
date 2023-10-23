@@ -18,6 +18,31 @@ body {
   padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
+.cart-button {
+  background-color: #febd69;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-button:before {
+  content: '\f07a'; /* Font Awesome cart icon (you may need to include Font Awesome in your project) */
+  font-family: FontAwesome;
+  font-size: 20px;
+  margin-right: 5px;
+}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -38,16 +63,26 @@ nav {
 
 #search_btn {
   background-color: #febd69;
+  vertical-align: middle; /* Add this line */
 }
 
 .input-group {
   width: 90%;
   margin-right: 35%;
+  vertical-align: middle; /* Add this line */
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 #search_field {
   height: 2.4rem;
   padding: 1rem;
+  vertical-align: middle; /* Add this line */
+
 }
 
 #login_btn,
@@ -59,7 +94,7 @@ nav {
 
 #cart {
   font-size: 1rem;
-  color: white;
+  color: rgb(244, 242, 242);
 }
 
 #cart_count {
@@ -74,7 +109,10 @@ nav {
 /* Home page */
 #products_heading {
   margin-top: 1.8rem;
+  font-family: 'Lato', sans-serif;
+  color:  #FF6600; /* Your Chosen Color */
 }
+
 
 .card {
   height: 100%;
@@ -155,7 +193,7 @@ footer {
 
 /* Product Details Page */
 #product_id {
-  color: grey;
+  color: rgb(12, 11, 11);
   font-size: 0.8rem;
 }
 
@@ -233,7 +271,8 @@ footer {
 }
 
 .cart-item a {
-  color: grey;
+  color: rgb(8, 8, 8);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #delete_cart_item {
@@ -242,6 +281,11 @@ footer {
   padding: 0.3rem 0.5rem;
   font-size: 1.1rem;
   border: none;
+  
+}
+#delete_cart_item:hover {
+  color: rgb(255, 255, 255);
+  background-color: #000000; /* Change text color to black on hover */
 }
 
 #card_item_price {

@@ -47,6 +47,7 @@ import ShippingForm from './paymentComponent/shippingForm';
 import PaymentDetails from './paymentComponent/paymentDetails';
 import FormSwitcher from './paymentComponent/FormSwitcher';
 import View from './components/View';
+import Discount from './pages/Dis';
 
 
 
@@ -116,6 +117,7 @@ function App() {
                   <Route path='/admin/reviews' element={ <ProtectedRoute isAdmin={true}><ReviewList/></ProtectedRoute> } />
                   <Route path='/admin/pay' element={ <ProtectedRoute isAdmin={true}><Pay/></ProtectedRoute> } />
                   <Route path='admin/viewticket' element={ <ProtectedRoute isAdmin={true}><ViewTicket/></ProtectedRoute> } />
+                  <Route path='pages/dis' element={ <ProtectedRoute isAdmin={true}><Discount/></ProtectedRoute> } />
                 </Routes>
             <Footer/>
         </HelmetProvider>

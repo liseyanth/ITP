@@ -182,6 +182,7 @@ export default function ViewTicket() {
                           className="text-danger"
                           icon={faTrash}
                           style={{ fontSize: 25 }}
+                          onClick={handleRemoveTicketItem}
                         />
                       </button>
                       <Link to={`/editticket/${item._id}`}>

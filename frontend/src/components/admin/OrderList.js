@@ -47,9 +47,12 @@ export default function OrderList() {
             rows: [],
         };
 
+
+        let increment = 1;
+      
         adminOrders.forEach((order) => {
             data.rows.push({
-                id: order._id,
+                id: `ORD0${increment++}`,
                 noOfItems: order.orderItems.length,
                 amount: `LKR ${order.totalPrice}`, // Change the currency symbol to LKR
                 status: (

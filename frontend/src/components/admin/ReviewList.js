@@ -48,13 +48,12 @@ export default function ReviewList() {
       ],
       rows: [],
     };
-
-    // Add logic here to filter reviews by topic "ESTER AURA" and add the date
+    let increment = 1;
 
     reviews.forEach((review) => {
       // Add logic here to filter reviews by topic "ESTER AURA" and add the date
       data.rows.push({
-        id: review._id,
+        id:`REV0${increment++}`,
         rating: review.rating,
         user: review.user.name,
         comment: review.comment,
@@ -100,7 +99,7 @@ const generatePDF = () => {
   const date = new Date().toLocaleDateString();
   pdf.setFontSize(12);
   pdf.setFont("helvetica", "normal"); // Set font and style
-  pdf.text(`Product ID: ${productId}`, 15, yOffset);
+  pdf.text(`Product Referrance ID: ${productId}`, 15, yOffset);
   pdf.text(`Date: ${date}`, 15, yOffset + 10);
 
   const tableData = setReviews().rows.map((row) => [
@@ -128,7 +127,7 @@ const generatePDF = () => {
   // Add some space after the table
   yOffset += tableHeight;
 
-  pdf.save("ester_aura_reviews.pdf");
+  pdf.save("Ester Aura reviews.pdf");
 };
 
 

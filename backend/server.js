@@ -82,6 +82,7 @@ app.post("/insert", async (req, res) => {
 
 
       // Delete a payment
+// Delete a payment
 app.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
@@ -96,8 +97,7 @@ app.delete("/delete/:id", async (req, res) => {
   }
 });
 
-    res.send('deleted')
-  });
+  
   app.put('/update/:id', async (req, res) => {
     const id = req.params.id
   

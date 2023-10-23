@@ -28,7 +28,7 @@ export default function AddTicket() {
           throw new Error('Failed to add a new ticket');
         }
         alert('Ticket Added Successfully');
-        navigate('/viewticket');
+        navigate('/viewTicket');
         setFormData({
           ...formData, // Keep customerId as 1
           subject: '',

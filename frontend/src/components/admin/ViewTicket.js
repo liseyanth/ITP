@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTrash, faEdit, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
 import { PDFDocument, rgb } from 'pdf-lib';
-import '../components/VT.css';
+import '../admin/VT.css';
+import Sidebar from './Sidebar'
+
+
+
 
 export default function ViewTicket() {
     const [ticketList, setTicketList] = useState([]);
@@ -113,14 +117,14 @@ export default function ViewTicket() {
       
       
         return (
+          <div className="row">
+          <div className="col-12 col-md-2">
+                  <Sidebar/>
+          </div>
           <div className="container mt-5">
             <h3 className="text-light">All Tickets</h3>
             <div className="row my-3">
-              <div className="col-md-6">
-                <Link to="/addticket">
-                  <button className="btn btn-primary">Add Ticket</button>
-                </Link>
-              </div>
+              
               <div className="col-md-6 text-md-end">
                 <button className="btn btn-secondary" onClick={generateReport}>
                   <FontAwesomeIcon icon={faFilePdf} /> Generate PDF
@@ -190,6 +194,7 @@ export default function ViewTicket() {
             </table>
             {error && <div className="alert alert-danger">{error}</div>}
             <div className="" style={{ height: '200px' }}></div>
+          </div>
           </div>
         );
       }

@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import './Shipping.css';
 
 export const validateShipping = (shippingInfo, navigate) => {
-   
     if (
         !shippingInfo.address ||
         !shippingInfo.city ||
@@ -36,6 +35,13 @@ export default function Shipping() {
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        // Validate the phone number to ensure it contains exactly 10 digits
+        if (phoneNo.length !== 10) {
+            toast.error('Phone number must be 10 digits', { position: toast.POSITION.BOTTOM_CENTER });
+            return; // Don't proceed if validation fails
+        }
+
         dispatch(saveShippingInfo({ address, city, phoneNo, postalCode, country, state }));
         navigate('/order/confirm');
     }
@@ -46,7 +52,7 @@ export default function Shipping() {
             <div className="row wrapper">
                 <div className="col-12 col-md-6 offset-md-3">
                     <form onSubmit={submitHandler} className="shadow-lg p-4">
-                        <h1 className="mb-4">Shipping Info</h1>
+                        <h1 className="mb-4">  Info</h1>
                         <div className="mb-3">
                             <label htmlFor="address_field" className="form-label">Address</label>
                             <input
@@ -72,23 +78,20 @@ export default function Shipping() {
                         </div>
 
                         <div className="mb-3">
-  <label htmlFor="phone_field" className="form-label">
-    Phone No
-  </label>
-  <input
-    type="tel"
-    id="phone_field"
-    className="form-control"
-    maxLength="10"
-    value={phoneNo}
-    onChange={(e) => {
-      // Use a regular expression to remove non-numeric characters
-      const numericValue = e.target.value.replace(/[^0-9]/g, '');
-      setPhoneNo(numericValue);
-    }}
-    required
-  />
-</div>
+                            <label htmlFor="phone_field" className="form-label">Phone No</label>
+                            <input
+                                type="tel"
+                                id="phone_field"
+                                className="form-control"
+                                value={phoneNo}
+                                onChange={(e) => {
+                                    // Use a regular expression to remove non-numeric characters
+                                    const numericValue = e.target.value.replace(/[^0-9]/g, '');
+                                    setPhoneNo(numericValue);
+                                }}
+                                required
+                            />
+                        </div>
 
                         <div className="mb-3">
                             <label htmlFor="postal_code_field" className="form-label">Postal Code</label>

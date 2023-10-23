@@ -37,6 +37,10 @@ export default function Sidebar () {
                 <li>
                     <Link to="/admin/Pay"><i className="fa fa-users"></i>Payment</Link>
                 </li>
+                <li>
+                <Link to="/pages/Insert"><i className="fa fa-users"></i>Discount</Link>
+                    
+                </li>
         
             </ul>
             </nav>

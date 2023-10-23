@@ -166,7 +166,7 @@ const generatePDF = () => {
           <Col md={5}>
             <form onSubmit={submitHandler}>
               <div className="form-group">
-                <label>Product ID</label>
+                <label>Enter the Reference Id of the Product</label>
                 <input
                   type="text"
                   onChange={(e) => setProductId(e.target.value)}

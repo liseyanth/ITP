@@ -52,7 +52,7 @@ export default function Shipping() {
             <div className="row wrapper">
                 <div className="col-12 col-md-6 offset-md-3">
                     <form onSubmit={submitHandler} className="shadow-lg p-4">
-                        <h1 className="mb-4">  Info</h1>
+                        <h1 className="form-label">Shipping Information</h1>
                         <div className="mb-3">
                             <label htmlFor="address_field" className="form-label">Address</label>
                             <input
@@ -61,6 +61,8 @@ export default function Shipping() {
                                 className="form-control"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
+                                placeholder="Enter your address"
+                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
                                 required
                             />
                         </div>
@@ -73,6 +75,8 @@ export default function Shipping() {
                                 className="form-control"
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
+                                placeholder="Enter your city"
+                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
                                 required
                             />
                         </div>
@@ -89,6 +93,8 @@ export default function Shipping() {
                                     const numericValue = e.target.value.replace(/[^0-9]/g, '');
                                     setPhoneNo(numericValue);
                                 }}
+                                placeholder="Enter your phone number"
+                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
                                 required
                             />
                         </div>
@@ -101,6 +107,8 @@ export default function Shipping() {
                                 className="form-control"
                                 value={postalCode}
                                 onChange={(e) => setPostalCode(e.target.value)}
+                                placeholder="Enter your postal code"
+                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
                                 required
                             />
                         </div>
@@ -112,6 +120,7 @@ export default function Shipping() {
                                 className="form-select"
                                 value={country}
                                 onChange={(e) => setCountry(e.target.value)}
+                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
                                 required
                             >
                                 {countryList.map((country, i) => (
@@ -130,6 +139,8 @@ export default function Shipping() {
                                 className="form-control"
                                 value={state}
                                 onChange={(e) => setState(e.target.value)}
+                                placeholder="Enter your state"
+                                style={{ boxShadow: '0 4px 6px rgba(255, 165, 0, 0.5)' }}
                                 required
                             />
                         </div>

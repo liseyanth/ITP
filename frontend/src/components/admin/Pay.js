@@ -29,7 +29,8 @@ function Pay() {
   const generatePDF = () => {
     const doc = new jsPDF();
     doc.setFontSize(16);
-    doc.text("Lanka Opticals", 105, 15, "center");
+    doc.setTextColor(0, 0, 128);
+    doc.text("Ester Aura", 105, 15, "center");
     doc.text("Payment Summary", 105, 25, "center");
     const tableStartY = 30;
     doc.autoTable({

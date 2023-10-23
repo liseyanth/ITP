@@ -1,8 +1,6 @@
-
 /* Shipping.css */
 
 /* Wrapper for the entire form */
-/* Add this to your CSS file */
 .wrapper {
   margin-top: 20px;
   background: linear-gradient(135deg, #FFA500, #FF6347); /* Orange gradient mix */
@@ -108,4 +106,3 @@ h1 {
   border-radius: 10px;
   text-align: center; /* Center-align the text within the form */
 }
-

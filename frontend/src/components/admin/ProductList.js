@@ -23,6 +23,11 @@ export default function ProductList() {
                     sort: 'asc'
                 },
                 {
+                    label: 'REWPROID',
+                    field: 'refid',
+                    sort: 'asc'
+                },
+                {
                     label: 'Name',
                     field: 'name',
                     sort: 'asc'
@@ -45,10 +50,11 @@ export default function ProductList() {
             ],
             rows : []
         }
-
+        let increment = 1;
         products.forEach( product => {
             data.rows.push({
-                id: product._id,
+                id: `PRD0${increment++}`,
+                refid: product._id,
                 name: product.name,
                 price : `LKR ${product.price}`,
                 stock: product.stock,

@@ -79,10 +79,10 @@ export default function UserList() {
             rows : []
         }
 
-
+        let increment = 1;
         users.forEach( user => {
             data.rows.push({
-                id: user.userid,
+                id: `USER0${increment++}`,
                 name: user.name,
                 email : user.email,
                 role: user.role ,

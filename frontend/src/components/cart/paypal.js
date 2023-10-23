@@ -25,6 +25,11 @@ function Pay() {
   },[])
 
 
+  
+
+ 
+
+  
   //delete 
   const deletePayment = (id) => {
     Axios.delete(`http://localhost:8000/delete/${id}`)
@@ -43,9 +48,6 @@ function Pay() {
       });
   };
   
-  
-
- 
   // Filter payment details based on the search query
   const filteredPaymentDetails = paymentDetails.filter((val) => {
     const fieldsToSearch = [

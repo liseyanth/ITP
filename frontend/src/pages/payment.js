@@ -1,6 +1,9 @@
-import React,{useEffect, useState} from 'react'
-import { FaSearch } from 'react-icons/fa'
-import Axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
+import Axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function pay() {
 
      //read data from database 
@@ -23,11 +26,21 @@ function pay() {
 
 
   //delete 
-      const deletePayment=(id)=>{
-        Axios.delete(`http://localhost:8000/delete/${id}`)
+  const deletePayment = async (id) => {
+    const confirmed = window.confirm("Are you sure you want to delete this payment?");
+    if (confirmed) {
+      try {
+        await Axios.delete(`http://localhost:8000/delete/${id}`);
+        // Remove the deleted item from paymentDetails
+        setPaymentDetails((prevPaymentDetails) => prevPaymentDetails.filter(item => item._id !== id));
+        alert('Payment deleted successfully');
+      } catch (error) {
+        console.error('Error deleting user:', error);
+        alert('An error occurred while deleting payment');
       }
-
- 
+    }
+  };
+  
   // Filter payment details based on the search query
   const filteredPaymentDetails = paymentDetails.filter((val) => {
     const fieldsToSearch = [

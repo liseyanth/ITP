@@ -8,7 +8,7 @@ import Loader from '../layouts/Loader';
 import { MDBDataTable} from 'mdbreact';
 import {toast } from 'react-toastify'
 import Sidebar from "./Sidebar"
-import "./r.css"
+import "../admin/r.css"
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -79,10 +79,10 @@ export default function UserList() {
             rows : []
         }
 
-
+        let increment = 1;
         users.forEach( user => {
             data.rows.push({
-                id: user.userid,
+                id: `USER0${increment++}`,
                 name: user.name,
                 email : user.email,
                 role: user.role ,

@@ -52,7 +52,9 @@ export default function AddTicket() {
 
   return (
     <div>
+
    <div className="container-fluid pt-5 mb-5" style={{ background: '#f7e0c1'}}>
+
         <div className="container p-5 mt-5 bg-body-secondary" style={{ borderRadius: 20 }}>
           <h1 className="mt-3 text-center">Add Ticket</h1>
           <div className="container">

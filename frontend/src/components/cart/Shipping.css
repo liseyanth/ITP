@@ -1,0 +1,108 @@
+/* Shipping.css */
+
+/* Wrapper for the entire form */
+.wrapper {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #FFA500, #FF6347); /* Orange gradient mix */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end; /* Move the form to the left side */
+  border: 3px solid #FF6347; /* Matching border color */
+  border-radius: 20px; /* Rounded border corners */
+  padding: 20px; /* Add padding for spacing */
+}
+
+
+/* Form container */
+.shadow-lg {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(155, 116, 33, 0.1);
+}
+
+/* Headings */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+/* Add this to your CSS file */
+.form-label {
+  font-size: 24px; /* Set the font size */
+  font-weight: bold; /* Make the text bold */
+  color: #e68c18; /* Set a custom text color */
+  text-align: center; /* Center the text */
+  text-transform: uppercase; /* Convert text to uppercase */
+  margin-top: 20px; /* Add some top margin for spacing */
+}
+
+
+/* Address field */
+#address_field {
+  border-color: #ffae00; /* Blue border for active input */
+}
+
+/* City field */
+#city_field {
+  border-color: #ffae00; /* Blue border for active input */
+}
+
+/* Phone No field */
+#phone_field {
+  border-color: #ffae00; /* Blue border for active input */
+}
+
+/* Postal Code field */
+#postal_code_field {
+  border-color: #ffae00; /* Blue border for active input */
+}
+
+/* Country field */
+#country_field {
+  border-color: #ffae00; /* Blue border for active input */
+}
+
+/* State field */
+#state_field {
+  border-color: #ffae00; /* Blue border for active input */
+}
+
+/* Error messages */
+.toast-bottom-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6961; /* You can use any error color you prefer */
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Submit button */
+#shipping_btn {
+  background: linear-gradient(135deg, #FFA500, #FF6347);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(255, 165, 0, 0.5);
+}
+
+#shipping_btn:hover {
+  background-color: #ffae00;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  max-width: 50%;
+  margin: 0 auto; /* Center-align the form */
+  border-radius: 10px;
+  text-align: center; /* Center-align the text within the form */
+}

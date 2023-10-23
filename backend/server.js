@@ -73,7 +73,7 @@ app.post("/insert", async (req, res) => {
       res.json(result);
     } catch (err) {
       console.error(err);
-      res.status(500).json({ error: "Error reading data" });
+      //res.status(500).json({ error: "Error reading data" });
     }
   });
   
@@ -83,6 +83,28 @@ app.post("/insert", async (req, res) => {
     await paymentModel.findByIdAndRemove(id).exec();
     res.send('deleted')
   });
+  
+
+
+
+
+      // Delete a payment
+// Delete a payment
+app.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await paymentModel.findByIdAndRemove(id).exec();
+
+    // If the deletion is successful, send a success response
+    res.json({ success: true, message: 'Payment deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting payment:', error);
+    // If there's an error, send an error response
+    res.status(500).json({ success: false, message: 'An error occurred while deleting payment' });
+  }
+});
+
+  
   app.put('/update/:id', async (req, res) => {
     const id = req.params.id
   
@@ -112,7 +134,6 @@ app.post("/insert", async (req, res) => {
         res.status(500).json({ error: 'Error updating payment record' });
     }
 });
-  
   
   
   

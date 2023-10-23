@@ -84,7 +84,7 @@ export default function ViewQuestions() {
                 <div className="col-12 px-5"> {/* Full width content */}
                     <section id="faq" className="faq section-bg">
                         <div className='d-flex justify-content-end'>
-                            <Link to="/viewticket"><button className='btn btn-seondary mt-2' style={{backgroundColor:"#36454F",color:"black"}}>Raise a Ticket</button></Link>
+                            <Link to="/addticket"><button className='btn btn-seondary mt-2' style={{backgroundColor:"#36454F",color:"black"}}>Raise a Ticket</button></Link>
                         </div>
                         <div className="container" data-aos="fade-up">
                             <div className="section-title">

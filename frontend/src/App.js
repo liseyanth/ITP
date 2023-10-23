@@ -23,7 +23,7 @@ import ViewQuestions from './components/ViewQuestions';
 import ViewTicket from './components/admin/ViewTicket';
 import AddTicket from './components/AddTicket';
 import EditTicket from './components/EditTicket';
-import Pay from'./components/cart/paypal'
+import Pay from'./components/admin/Pay'
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
@@ -114,7 +114,7 @@ function App() {
                   <Route path='/admin/users' element={ <ProtectedRoute isAdmin={true}><UserList/></ProtectedRoute> } />
                   <Route path='/admin/user/:id' element={ <ProtectedRoute isAdmin={true}><UpdateUser/></ProtectedRoute> } />
                   <Route path='/admin/reviews' element={ <ProtectedRoute isAdmin={true}><ReviewList/></ProtectedRoute> } />
-                  <Route path='admin/pay' element={ <ProtectedRoute isAdmin={true}><Pay/></ProtectedRoute> } />
+                  <Route path='/admin/pay' element={ <ProtectedRoute isAdmin={true}><Pay/></ProtectedRoute> } />
                   <Route path='admin/viewticket' element={ <ProtectedRoute isAdmin={true}><ViewTicket/></ProtectedRoute> } />
                 </Routes>
             <Footer/>

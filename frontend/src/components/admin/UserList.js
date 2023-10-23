@@ -8,7 +8,7 @@ import Loader from '../layouts/Loader';
 import { MDBDataTable} from 'mdbreact';
 import {toast } from 'react-toastify'
 import Sidebar from "./Sidebar"
-import "./r.css"
+import "../admin/r.css"
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 

@@ -73,8 +73,15 @@ app.post("/insert", async (req, res) => {
       res.json(result);
     } catch (err) {
       console.error(err);
-      res.status(500).json({ error: "Error reading data" });
+      //res.status(500).json({ error: "Error reading data" });
     }
+  });
+  
+  //delete 
+  app.delete("/delete/:id", async (req, res) => {
+    const id = req.params.id
+    await paymentModel.findByIdAndRemove(id).exec();
+    res.send('deleted')
   });
   
 

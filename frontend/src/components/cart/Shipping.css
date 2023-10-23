@@ -85,13 +85,14 @@ h1 {
 
 /* Submit button */
 #shipping_btn {
-  background-color: #ffae00;
+  background: linear-gradient(135deg, #FFA500, #FF6347);
   color: #fff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(255, 165, 0, 0.5);
 }
 
 #shipping_btn:hover {

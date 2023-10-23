@@ -84,11 +84,11 @@ export default function ViewQuestions() {
                 <div className="col-12 px-5"> {/* Full width content */}
                     <section id="faq" className="faq section-bg" >
                         <div className='d-flex justify-content-end'>
-                            <Link to="/addticket"><button className='btn btn-seondary mt-2' style={{backgroundColor:"blue",color:"black"}}>Raise a Ticket</button></Link>
+                            <Link to="/addticket"><button className='btn btn-seondary mt-2' style={{backgroundColor:"gray",color:"black"}}>Raise a Ticket</button></Link>
                         </div>
                         <div className="container" data-aos="fade-up">
                             <div className="section-title">
-                                <h2 className="text-secondary"> Frequently Asked Questions</h2>
+                                <h2 className="" style={{color:"black"}}> Frequently Asked Questions</h2>
                                 <p>
                                     Welcome to Ester Aura Organic Cosmetics - Where Beauty Meets Nature! At Ester Aura,
                                     we believe that true beauty begins with nature. We are passionate about harnessing

@@ -56,7 +56,7 @@ export default function Header () {
 
           <Link to="/cart"><span id="cart" className="ml-3">Cart</span></Link>
           <span className="ml-1" id="cart_count">{cartItems.length}</span>
-          <Link to="/faq" className="btn ml-3">FAQ</Link>
+          <Link to="/faq" className="btn ml-3" style={{color:"white"}}>FAQ</Link>
         </div>
     </nav>
     )

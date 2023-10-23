@@ -1,13 +1,40 @@
-import { Fragment, useEffect} from 'react'
+import { Fragment, useEffect,useRef} from 'react'
 import MetaData from '../layouts/MetaData';
 import {MDBDataTable} from 'mdbreact'
 import { useDispatch, useSelector } from 'react-redux';
 import { userOrders as userOrdersAction } from '../../actions/orderActions';
 import { Link } from 'react-router-dom';
+import "./s.css"
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 export default function UserOrders () {
     const { userOrders = []} = useSelector(state => state.orderState)
     const dispatch = useDispatch();
+    const pref=useRef(null);
+    const print = () => {
+   
+        const container  = pref.current;
+    console.log("Lalu")
+          html2canvas(container).then((Value)=>
+    
+          {
+            const Url = Value.toDataURL('Report/png');
+            const doc = new jsPDF('l','mm','a4');
+            const h = doc.internal.pageSize.getHeight();
+            const w = doc.internal.pageSize.getWidth();
+    
+            const CH = Value.height;
+            const CW = Value.width;
+    
+            doc.addImage(Url,'PNG',0,0,w,h);
+            doc.save('Report.pdf')
+    
+          }).catch((error)=>
+          {
+            console.log('fetch fail'+error);
+          })
+    }
 
     useEffect(() => {
         dispatch(userOrdersAction)
@@ -65,9 +92,16 @@ export default function UserOrders () {
 
 
     return (
+        
         <Fragment>
+            <div className="btnreport"
+         onClick={print}>
+            Download Report
+         </div>
+            
             <MetaData title="My Orders" />
             <h1 className='mt-5'>My Orders</h1> 
+            <div ref={pref}>
             <MDBDataTable
                 className='px-3'
                 bordered
@@ -78,6 +112,7 @@ export default function UserOrders () {
                       
                 data={setOrders()}
             />
+            </div>
         </Fragment>
     )
 }

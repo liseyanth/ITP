@@ -12,7 +12,7 @@ import Sidebar from "./Sidebar"
 export default function OrderList() {
     const { adminOrders = [], loading = true, error, isOrderDeleted }  = useSelector(state => state.orderState)
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();//add a id number
 
     const setOrders = () => {
         const data = {

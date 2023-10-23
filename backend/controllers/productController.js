@@ -7,7 +7,7 @@ const APIFeatures = require('../utils/apiFeatures');
 
 //Get Products - /api/v1/products
 exports.getProducts = catchAsyncError(async (req, res, next)=>{
-    const resPerPage = 5;
+    const resPerPage = 6;
     
     let buildQuery = () => {
         return new APIFeatures(Product.find(), req.query).search().filter()
@@ -126,7 +126,7 @@ exports.deleteProduct = catchAsyncError(async (req, res, next) =>{
         });
     }
 
-    await product.remove();
+    await product.deleteOne();
 
     res.status(200).json({
         success: true,
@@ -154,6 +154,7 @@ exports.createReview = catchAsyncError(async (req, res, next) => {
         // Update the existing review
         existingReview.comment = comment;
         existingReview.rating = rating;
+        existingReview.createdAt = Date.now();
     } else {
         // Create a new review
         product.reviews.push(review);

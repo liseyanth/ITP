@@ -4,7 +4,7 @@
 .cart-item {
     margin: 20px 0;
     padding: 15px;
-    background-color: #3f3f48;
+    background-color: #cacad9e1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -15,7 +15,7 @@
 
 .cart-product-name {
     font-size: 1.2rem;
-    color: #e4dada;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -25,10 +25,35 @@
     justify-content: space-between;
     margin-top: 10px;
 }
+.cart-button {
+    background-color: #febd69;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cart-button:before {
+    content: '\f07a'; /* Font Awesome cart icon (you may need to include Font Awesome in your project) */
+    font-family: FontAwesome;
+    font-size: 20px;
+    margin-right: 5px;
+  }
 
 .cart-item-price {
     font-size: 1.2rem;
-    color: #e1d4d4;
+    color: #1d1c1c;
 }
 
 .stockCounter {
@@ -62,19 +87,20 @@
 
 #delete_cart_item {
     font-size: 1.5rem;
-    color: #8f0202;
+    color: #883232;
     cursor: pointer;
 }
 
 /* Cart Summary Styles */
 .cart-summary {
-    background-color: #8c9197;
+    background-color: #be8af1;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cart-summary h4 {
     font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
     color: #000000;
 }
@@ -84,7 +110,7 @@
 }
 
 #checkout_btn {
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     font-size: 1.2rem;
     padding: 10px;
@@ -94,5 +120,6 @@
 }
 
 #checkout_btn:hover {
-    background-color: #0056b3;
+    background-color: #e7ecf2;
+    color:black;
 }

@@ -23,12 +23,12 @@ export default function Dashboard () {
 
     let totalAmount = 0;
     if (adminOrders.length > 0) {
-        adminOrders.forEach( order => {
-            totalAmount += order.totalPrice
-        })
+      adminOrders.forEach((order) => {
+        totalAmount += order.totalPrice;
+      });
     }
 
-
+    const formattedTotalAmount = totalAmount.toFixed(3);
 
     useEffect( () => {
        dispatch(getAdminProducts);
@@ -45,14 +45,16 @@ export default function Dashboard () {
             <div className="col-12 col-md-10">
                 <h1 className="my-4">Dashboard</h1>
                 <div className="row pr-4">
-                    <div className="col-xl-12 col-sm-12 mb-3">
-                        <div className="card text-white bg-primary o-hidden h-100">
-                            <div className="card-body">
-                                <div className="text-center card-font-size">Total Amount<br /> <b>LKR{totalAmount}</b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="col-xl-12 col-sm-12 mb-3">
+            <div className="card text-white bg-primary o-hidden h-100">
+            <div className="card-body">
+                <div className="text-center card-font-size">
+                Total Amount<br />
+                <b>LKR{formattedTotalAmount}</b>
+                </div>
+            </div>
+            </div>
+        </div>
                 </div>
                 <div className="row pr-4">
                     <div className="col-xl-3 col-sm-6 mb-3">

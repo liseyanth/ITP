@@ -22,11 +22,11 @@ export default function ProductList() {
                     field: 'id',
                     sort: 'asc'
                 },
-                {
-                    label: 'REWPROID',
+                /*{
+                    label: 'Ref ID',
                     field: 'refid',
                     sort: 'asc'
-                },
+                },*/
                 {
                     label: 'Name',
                     field: 'name',

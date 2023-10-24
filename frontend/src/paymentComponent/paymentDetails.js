@@ -57,8 +57,7 @@ function PaymentDetails({ isEnabled }) {
           <div className="card mb-4">
             <div className="card-body1">
               <div class="input-group">
-                <input type="text" className="form-control" placeholder='Code/Coupon' />
-                <button class="btn   btn-secondary" type="button" >Apply</button>
+             
               </div> 
             </div>
           </div>

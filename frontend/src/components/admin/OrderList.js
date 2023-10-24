@@ -130,6 +130,8 @@ export default function OrderList() {
                                 bordered
                                 striped
                                 hover
+                                noBottomColumns={true} 
+
                                 className="px-3"
                             />
                         }

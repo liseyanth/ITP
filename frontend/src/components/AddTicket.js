@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// hii shiva 
+
 export default function AddTicket() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    customerId: 1, // Set the initial value to 1
+    customerId: Math.floor(Math.random() * 1000), // Generate a random number between 0 and 999
     subject: '',
     message: '',
     issueFoundAt: '',
@@ -30,7 +30,7 @@ export default function AddTicket() {
         alert('Ticket Added Successfully');
         navigate('/viewTicket');
         setFormData({
-          ...formData, // Keep customerId as 1
+          customerId: Math.floor(Math.random() * 1000), // Generate a new random ID
           subject: '',
           message: '',
           issueFoundAt: '',

@@ -62,11 +62,9 @@ function Discount() {
 
   return (
     <div>
-    <div className="col-12 col-md-2">
-      <Sidebar />
-    </div>
-
-   
+      <div className="col-12 col-md-2">
+        <Sidebar />
+      </div>
       <div className="mt-5">
         <div className="container">
           <form className="d-flex" role="search" onSubmit={handleSearch}>
@@ -123,8 +121,8 @@ function Discount() {
           </table>
         </div>
       </div>
-      </div>
-    
+    </div>
+  
   );
 }
 

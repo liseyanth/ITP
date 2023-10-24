@@ -21,7 +21,7 @@ function PopupForm({ closePopup }) {
         ) : (
          <div> 
         <h2>Confirm order</h2>
-        <p>You can pay in cash to our courier when you receive the goods at your doorstep.</p>
+        <p>You can pay in cash to our courier when you receive the Cosmetics at your doorstep.</p>
       
          
         <button type="button" className="btn btn-primary btn-lg" data-dismiss="modal" onClick={handleCloseClick}>Confirm</button>

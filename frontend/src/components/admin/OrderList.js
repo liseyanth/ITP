@@ -130,6 +130,7 @@ export default function OrderList() {
                                 bordered
                                 striped
                                 hover
+                                entriesOptions={[5, 10, 15, 20]}
                                 noBottomColumns={true} 
 
                                 className="px-3"

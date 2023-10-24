@@ -53,7 +53,8 @@ export default function ProductList() {
         let increment = 1;
         products.forEach( product => {
             data.rows.push({
-                id: `PRD0${increment++}`,
+                // id: `PRD0${increment++}`,
+                id: product._id,
                 refid: product._id,
                 name: product.name,
                 price : `LKR ${product.price}`,

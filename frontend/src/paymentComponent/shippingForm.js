@@ -499,12 +499,21 @@ function ShippingForm({ enableSecondComponent }) {
                   <div className="mb-3">
                     <label className="form-label">Postal code</label>
                     <input
-                      type="text"
-                      name="postalCode"
-                      className="form-control styled-input"
-                      value={values.postalCode}
-                      onChange={handleInputChange}
-                    />
+  type="text"
+  name="postalCode"
+  className="form-control styled-input"
+  value={values.postalCode}
+  onChange={handleInputChange}
+  onKeyPress={(e) => {
+    // Allow only numeric characters (0-9) and prevent any other characters
+    const allowedChars = /[0-9\b]/;
+    if (!allowedChars.test(e.key)) {
+      e.preventDefault();
+    }
+  }}
+  maxLength="8"
+  minLength="6"
+/>
                     {errors.postalCode && (
                       <span className="invalid">*{errors.postalCode}*</span>
                     )}

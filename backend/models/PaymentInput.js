@@ -43,7 +43,11 @@ const paymentSchema = new mongoose.Schema({
     {
         type:  String,
         required:true
-    } 
+    },
+    Status:{
+        type:String,
+        default:'pending'
+    }
      
 })
 const Payment=mongoose.model("Payment",paymentSchema)

@@ -190,13 +190,21 @@ function ShippingForm({ enableSecondComponent }) {
                   <div className="mb-3">
                     <label className="form-label">Telephone</label>
                     <input
-                      type="tel"
-                      name="telephone"
-                      className="form-control styled-input"
-                      placeholder="Example: +940762481009 / 0762481009"
-                      value={values.telephone}
-                      onChange={handleInputChange}
-                    />
+  type="tel"
+  name="telephone"
+  className="form-control styled-input"
+  placeholder="Example: +940762481009 / 0762481009"
+  value={values.telephone}
+  onChange={handleInputChange}
+  onKeyPress={(e) => {
+    // Allow only numeric characters (0-9), backspace, and a few special keys
+    const allowedChars = /[0-9\b+()-]/;
+    if (!allowedChars.test(e.key)) {
+      e.preventDefault();
+    }
+  }}
+  maxLength="10"
+/>
                     {errors.telephone && (
                       <span className="invalid">*{errors.telephone}*</span>
                     )}

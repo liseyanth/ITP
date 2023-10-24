@@ -40,9 +40,12 @@ export default function Sidebar () {
                 </li>
                 <li>
 
-                <Link to="/pages/Insert"><i className="fa fa-users"></i>Discount</Link>
+                <Link to="/pages/Dis"><i className="fa fa-users"></i>Discount</Link>
 
-                    <Link to="/admin/viewticket"><i className="fa fa-users"></i>ViewTicket</Link>
+                  
+                </li>
+                <li>
+                <Link to="/admin/viewticket"><i className="fa fa-users"></i>ViewTicket</Link>
 
                 </li>
         

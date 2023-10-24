@@ -119,7 +119,9 @@ app.delete("/delete/:id", async (req, res) => {
         city: req.body.city,
         address: req.body.address,
         postalCode: req.body.postalCode,
-        province: req.body.province
+        province: req.body.province,
+        status:req.body.status
+
     };
 
     try {

@@ -11,10 +11,10 @@ export default function PayPal() {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: "glasses",
+                description: "cosmetics",
                 amount: {
                   currency_code: "USD",
-                  value: 650.0,
+                  value: 320.0,
                 },
               },
             ],

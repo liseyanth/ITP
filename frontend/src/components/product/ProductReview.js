@@ -10,7 +10,7 @@ export default function ProductReview({ reviews }) {
                     <div className="rating-outer">
                         <div className="rating-inner" style={{ width: `${review.rating / 5 * 100}%` }}></div>
                     </div>
-                    <p className="review_user">by {review.user.name}</p>
+                    <p className="review_user">by {review.user ? review.user.name : 'Unknown User'}</p>
                     <p className="review_comment">{review.comment}</p>
                     <p className="review_date">Reviewed on {formatTimestamp(review.createdAt)}</p>
                     <hr />
@@ -18,7 +18,7 @@ export default function ProductReview({ reviews }) {
             ))}
         </div>
     );
-                //try
+
     // Helper function to format the timestamp
     function formatTimestamp(timestamp) {
         const date = new Date(timestamp);
@@ -32,4 +32,3 @@ export default function ProductReview({ reviews }) {
         return date.toLocaleDateString(undefined, options);
     }
 }
-//i have no ideaa

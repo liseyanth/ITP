@@ -49,13 +49,13 @@ export default function ReviewList() {
       rows: [],
     };
     let increment = 1;
-
+  
     reviews.forEach((review) => {
       // Add logic here to filter reviews by topic "ESTER AURA" and add the date
       data.rows.push({
-        id:`REV0${increment++}`,
+        id: `REV0${increment++}`,
         rating: review.rating,
-        user: review.user.name,
+        user: review.user?.name || 'Unknown User', // Use optional chaining and provide a default value
         comment: review.comment,
         actions: (
           <Fragment>
@@ -69,9 +69,10 @@ export default function ReviewList() {
         ),
       });
     });
-
+  
     return data;
   };
+  
 
   const deleteHandler = (e, id) => {
     e.target.disabled = true;

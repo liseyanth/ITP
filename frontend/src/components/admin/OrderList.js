@@ -9,11 +9,12 @@ import { MDBDataTable } from 'mdbreact';
 import { toast } from 'react-toastify';
 import Sidebar from "./Sidebar";
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 
 export default function OrderList() {
     const { adminOrders = [], loading = true, error, isOrderDeleted } = useSelector(state => state.orderState);
     const dispatch = useDispatch();
+
+    const [filteredOrders, setFilteredOrders] = useState(adminOrders); // Initialize with all orders
 
     const setOrders = () => {
         const data = {
@@ -47,14 +48,13 @@ export default function OrderList() {
             rows: [],
         };
 
-
         let increment = 1;
-      
-        adminOrders.forEach((order) => {
+
+        filteredOrders.forEach((order) => { // Use filteredOrders here
             data.rows.push({
                 id: `ORD0${increment++}`,
                 noOfItems: order.orderItems.length,
-                amount: `LKR ${order.totalPrice}`, // Change the currency symbol to LKR
+                amount: `LKR ${order.totalPrice}`,
                 status: (
                     <p style={{ color: order.orderStatus.includes('Processing') ? 'red' : 'green' }}>
                         {order.orderStatus}
@@ -81,17 +81,45 @@ export default function OrderList() {
         dispatch(deleteOrder(id));
     }
 
-    const generatePDF = () => {
-        const input = document.getElementById('order-table');
-        html2canvas(input).then((canvas) => {
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF();
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save('orders.pdf');
+    const generatePDF = (dataToPrint) => { // Accept the data to print as a parameter
+        const doc = new jsPDF();
+        doc.setFontSize(16);
+        doc.setTextColor(0, 0, 128);
+        doc.text("Order Details Report", 105, 15, { align: "center" });
+
+        const columns = ["ID", "Number of Items", "Amount", "Status"];
+        const rows = [];
+
+        let increment = 1;
+
+        dataToPrint.forEach((order) => { // Use the passed dataToPrint parameter
+            rows.push([
+                `ORD0${increment}`,
+                order.orderItems.length,
+                `LKR ${order.totalPrice}`,
+                order.orderStatus,
+            ]);
+
+            increment++;
         });
+
+        doc.autoTable({
+            head: [columns],
+            body: rows,
+            startY: 30,
+        });
+
+        doc.save('orders.pdf');
+    };
+
+    // Function to filter orders and update the state
+    const filterOrders = (filterCriteria) => {
+        const filteredData = adminOrders.filter((order) => {
+            // Add your filtering criteria here
+            // For example, if you want to filter by order status, you can use:
+            return order.orderStatus === filterCriteria;
+        });
+        setFilteredOrders(filteredData);
     };
 
     useEffect(() => {
@@ -123,6 +151,14 @@ export default function OrderList() {
             <div className="col-12 col-md-10">
                 <h1 className="my-4">Order List</h1>
                 <Fragment>
+                    {/* Add filter controls here */}
+                    <Button onClick={() => filterOrders('Processing')} className="btn btn-secondary btn-block py-2">
+                        Filter by Processing
+                    </Button>
+                    <Button onClick={() => filterOrders('Shipped')} className="btn btn-secondary btn-block py-2">
+                        Filter by Shipped
+                    </Button>
+                    {/* Display the filtered orders */}
                     <div id="order-table">
                         {loading ? <Loader /> :
                             <MDBDataTable
@@ -130,15 +166,13 @@ export default function OrderList() {
                                 bordered
                                 striped
                                 hover
-                                noBottomColumns={true} 
-
                                 className="px-3"
                             />
                         }
                     </div>
                 </Fragment>
                 <Button
-                    onClick={generatePDF}
+                    onClick={() => generatePDF(filteredOrders)} // Pass filteredOrders to generatePDF
                     className="btn btn-secondary btn-block py-2"
                     disabled={loading}
                 >
